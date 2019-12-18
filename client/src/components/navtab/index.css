@@ -1,0 +1,21 @@
+.nav-link{
+    color: #FBE8A6!important;
+    margin-right: 20px;
+    font-weight: 300;
+    text-decoration: none;
+}
+#myNavbar {
+    background-color: #303C6C;
+}
+#myLink {
+    text-decoration: none;
+    color: #FBE8A6!important;
+}
+#globe {
+    color: #FBE8A6;
+    padding-top: 15px;
+    margin-left: 10px;
+}
+#myBrand {
+    padding-bottom: 15px;
+}
