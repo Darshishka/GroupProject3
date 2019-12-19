@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from "react-router-d
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/footer";
 import NavTab from "./components/navtab";
+import Home from "./pages/home";
 
 function App() {
   return (    
@@ -12,7 +13,7 @@ function App() {
           <Router>
             <NavTab />
             <Switch>
-              
+              <Route path="/" component={Home}/> 
             </Switch>
             <Footer />
           </Router>
