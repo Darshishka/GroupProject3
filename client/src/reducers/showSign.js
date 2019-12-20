@@ -1,8 +1,8 @@
 const showReducer = (state = false, action) => {
     switch(action.type){
-        case "SHOW":
+        case "SHOWSIGNUP":
             return true;
-        case "CLOSE":
+        case "CLOSESIGNUP":
             return false;
         default:
             return state;
