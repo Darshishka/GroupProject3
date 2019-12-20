@@ -41,31 +41,34 @@ function Signin(){
             <Form>
                 <Row>
                     <Col>
-                        <Form.Group>
-                        <Form.Label>Email</Form.Label>
-                        <Form.Control onChange={handleChange} name="email" type="text" placeholder="name@email.com" />
-                        {error.login && (<p className="text-danger">{error.login}</p>)}
-                        </Form.Group>
+                        <Col>
+                            <Form.Group>
+                            <Form.Label>Email</Form.Label>
+                            <Form.Control onChange={handleChange} name="email" type="text" placeholder="name@email.com" />
+                            {error.login && (<p className="text-danger">{error.login}</p>)}
+                            </Form.Group>
+                        </Col>
+                        <Col>
+                            <Form.Group>
+                            <Form.Label>Password</Form.Label>
+                            <Form.Control onChange={handleChange} name="password" type="password" />
+                            </Form.Group>
+                        </Col>
+                        <Col className="align-self-center">
+                            <Button className="button" variant="none" type="submit" onClick={signIn}>Sign in</Button>
+                        </Col>
                     </Col>
-                    <Col>
-                        <Form.Group>
-                        <Form.Label>Password</Form.Label>
-                        <Form.Control onChange={handleChange} name="password" type="password" />
-                        </Form.Group>
-                    </Col>
-                    <Col className="align-self-center">
-                        <Button variant="primary" type="submit" onClick={signIn}>Sign in</Button>
+                    <Col id="rightCol">
+                        <Col id="forgot" className="text-center">
+                            <Button className="noOutline button" variant="none">Forgot Password?</Button>
+                        </Col>
+                        <h4 id="style" className="text-center">-- or --</h4>
+                        <Col id="signup" className="text-center">
+                            <Button className="button" variant="none" onClick={show}>Sign up</Button>
+                        </Col>
                     </Col>
                 </Row>      
             </Form>          
-            <Row id="forgot">
-                <Col >
-                    Forgot <Button className="noOutline"> Password</Button>?
-                </Col>
-                <Col className="text-right">
-                    <Button onClick={show}>Sign up</Button>
-                </Col>
-            </Row>
         </Container>
     )
 };

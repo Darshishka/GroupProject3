@@ -11,7 +11,6 @@ function App() {
       <Router>
         <div className="App">
           <Router>
-            <NavTab />
             <Switch>
               <Route path="/" component={Home}/> 
             </Switch>

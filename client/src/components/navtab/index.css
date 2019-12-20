@@ -1,18 +1,25 @@
 .nav-link{
-    color: #FBE8A6!important;
+    color: rgb(131, 82, 49)!important;
+    background-color: rgb(155, 218, 196);
+    border: none;
     margin-right: 20px;
     font-weight: 300;
     text-decoration: none;
+    
+}
+.button:hover {
+    background-color: rgb(155, 218, 196);
+
 }
 #myNavbar {
-    background-color: #303C6C;
+    background-color: rgb(155, 218, 196);
 }
 #myLink {
     text-decoration: none;
-    color: #FBE8A6!important;
+    color: rgb(131, 82, 49)!important;
 }
 #globe {
-    color: #FBE8A6;
+    color: rgb(131, 82, 49);
     padding-top: 15px;
     margin-left: 10px;
 }

@@ -1,0 +1,18 @@
+#forgot, #signup, #style {
+    margin-top: 10%;
+}
+.button {
+    background-color: rgb(155, 218, 196);
+    border-color: rgb(155, 218, 196);
+    color: rgb(131, 82, 49);
+}
+.button:hover, .button:active, .button:visited, .button:focus {
+    background-color: rgb(133, 197, 175);
+    border-color: rgb(133, 197, 175);
+    color: rgb(131, 82, 49);
+}
+#signInContainer {
+    width: max-content;
+    padding: 3%;
+    background-color: rgba(235, 226, 227, 0.548);
+}

@@ -1,5 +1,5 @@
 #myFooter {
-    background-color:#303C6C;
+    background-color:rgb(155, 218, 196);
     padding: 10px;
     font-size: 1em;    
 }
@@ -8,7 +8,7 @@
     font-size: 2em;
 }
 #footerRow a, .name {
-    color: #FBE8A6!important;
+    color: rgb(131, 82, 49)!important;
 }
 .name {
     margin-bottom: 0px;
