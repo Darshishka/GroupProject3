@@ -2,17 +2,17 @@ import React, { useState } from "react";
 import "./index.css";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { CLOSE, CHANGE } from "../../actions";
+import { CLOSESIGNUP, CHANGE } from "../../actions";
 import validate from "./validation";
 import API from "../../utils/API";
 
 function Signup(){
     const [ errors, setErrors ] = useState({});
-    const showState = useSelector(state => state.show);
+    const showState = useSelector(state => state.showSignup);
     const inputState = useSelector(state => state.change);  
     const dispatch = useDispatch();
     const close = () => {
-        dispatch(CLOSE())
+        dispatch(CLOSESIGNUP())
     };    
     const handleSubmit = e => {   
         let inputValidate = validate(inputState);    
@@ -62,7 +62,23 @@ function Signup(){
                             <Form.Text className="text-muted">
                                 We'll never share your email with anyone else.
                             </Form.Text>
-                        </Form.Group>                           
+                        </Form.Group>     
+                        <Form.Group>
+                            <Form.Label>Cross streets</Form.Label>
+                            <Form.Control onChange={handleChange} name="cross" type="text"/>
+                            {errors.cross && (<p className="text-danger">{errors.cross}</p>)} 
+                            <Form.Text className="text-muted">
+                                To ensure you are a part of this neighborhood please list your cross streets (NOT exact address).
+                            </Form.Text>
+                        </Form.Group> 
+                        <Form.Group>
+                            <Form.Label>Person who referred you</Form.Label>
+                            <Form.Control onChange={handleChange} name="refer" type="text"/>
+                            {errors.refer && (<p className="text-danger">{errors.refer}</p>)} 
+                            <Form.Text className="text-muted">
+                                To ensure you are a part of this neighborhood please list the person who referred you. If no one referred you, please explain your affiliation with this neighborhood.
+                            </Form.Text>
+                        </Form.Group>                       
                         <Form.Group>
                             <Form.Label>Password</Form.Label>
                             <Form.Control onChange={handleChange} name="password" type="password" placeholder="Password"/>
