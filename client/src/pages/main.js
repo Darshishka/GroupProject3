@@ -10,8 +10,8 @@ function Main(){
     return(
         <>
         <NavTab />
-        <Container>
-            <Sidenav />
+        <Sidenav />
+        <Container >   
             <AllPosts />
             <Post />
         </Container>
