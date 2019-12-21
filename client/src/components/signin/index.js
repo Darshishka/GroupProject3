@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./index.css";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { SIGN_IN, USER, USERDATA, SHOW } from "../../actions";
+import { SIGN_IN, USER, USERDATA, SHOWSIGNUP } from "../../actions";
 import API from "../../utils/API";
 import { useHistory } from 'react-router-dom';
 
@@ -14,21 +14,21 @@ function Signin(){
         dispatch(USER(e.target));
     };
     const show = () => {
-        dispatch(SHOW());
+        dispatch(SHOWSIGNUP());
     };
     const userState = useSelector(state => state.user);   
     const history = useHistory();
     const signIn = e => {
-        e.preventDefault();
-        if(!userState.username || !userState.password){
+        e.preventDefault();       
+        if(!userState.password || !/\S+@\S+\.\S+/.test(userState.email)){
             setError({...error, login: "invalid login" })
         } else {
-            API.checkUser(userState.username, userState.password)
+            API.checkUser(userState.email, userState.password)
             .then(res => {       
-                if(res.data.Username === userState.username){                    
+                if(res.data.email === userState.email){                    
                     dispatch(USERDATA(res.data));            
                     dispatch(SIGN_IN());                    
-                    history.push("/Account");
+                    history.push("/main");
                 } else {
                     setError({...error, login: "invalid login" })
                 }

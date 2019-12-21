@@ -8,6 +8,10 @@ export default function validate(inputs) {
         errors.email = 'An email address is required';
     } else if (!/\S+@\S+\.\S+/.test(inputs.email)) {
         errors.email = 'Email address is invalid';
+    } else if(!inputs.cross){
+        errors.cross = "Cross streets are required";
+    } else if(!inputs.refer){
+        errors.cross = "A referral is required";
     } else if (!/^.{6,}$/.test(inputs.password)){
         errors.password = "Password must be at least 6 characters long";
     } else if(inputs.password !== inputs.confirmPassword){

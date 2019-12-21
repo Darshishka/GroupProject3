@@ -7,11 +7,11 @@ export const SIGN_OUT = () => {
 export const USER = input => {
     return {type: "USER", payload: input}
 };
-export const SHOW = () => {
-    return { type: "SHOW"}
+export const SHOWSIGNUP = () => {
+    return { type: "SHOWSIGNUP"}
 };
-export const CLOSE = () => {
-    return { type: "CLOSE"}
+export const CLOSESIGNUP = () => {
+    return { type: "CLOSESIGNUP"}
 };
 export const CHANGE = input => {
     return {type: "CHANGE", payload: input}
@@ -24,4 +24,13 @@ export const DELETEDATA = () => {
 };
 export const DELETEUSER = () => {
     return {type: "DELETEUSER"}
+};
+export const POSTS = () => {
+    return {type: "POSTS"}
+};
+export const SHOWPOST = () => {
+    return {type: "SHOWPOST"}
+};
+export const CLOSEPOST = () => {
+    return {type: "CLOSEPOST"}
 };
