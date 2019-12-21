@@ -15,11 +15,12 @@ function Signup(){
         dispatch(CLOSESIGNUP())
     };    
     const handleSubmit = e => {   
+        e.preventDefault();
         let inputValidate = validate(inputState);    
-        if(Object.keys(inputValidate).length === 0){         
-            API.saveUser(inputState)
+        if(Object.keys(inputValidate).length === 0){
+            API.register(inputState)
             .then(res => {
-                if(res.data.email === "email already exists"){
+                if(res.data.email === "email exists"){
                     setErrors({...errors, email: "email exists" })
                 } else {
                     dispatch(CHANGE({}));
@@ -31,8 +32,7 @@ function Signup(){
             .catch(err => console.log(err))         
         } else {
             setErrors(validate(inputState));            
-        }
-        e.preventDefault();
+        }        
     };
     const handleChange = e => {
         e.persist();

@@ -20,14 +20,26 @@ function Post(){
     return (
         <Modal show={showPost} onHide={close}>
         <Modal.Header closeButton>
-            <Modal.Title>Post your comment</Modal.Title>
+            <Modal.Title>Add a post</Modal.Title>
         </Modal.Header>
         <Modal.Body>
             <Form>
                 <Form.Group>
-                    <Form.Label>Comment</Form.Label>
-                    <Form.Control onChange={handleChange} name="comment" type="text" />                    
-                </Form.Group>               
+                    <Form.Label>Type</Form.Label>
+                    <Form.Control onChange={handleChange} name="type" as="select">
+                        <option>Select a type</option>
+                        <option value="favor">I need a favor</option>
+                        <option value="offer">I have an offer</option>                       
+                    </Form.Control>
+                </Form.Group>
+                <Form.Group>
+                    <Form.Label>Title</Form.Label>
+                    <Form.Control onChange={handleChange} name="title" type="text" />                    
+                </Form.Group>  
+                <Form.Group>
+                    <Form.Label>Message</Form.Label>
+                    <Form.Control onChange={handleChange} name="message" type="text" />                    
+                </Form.Group>                 
                 <Button type="submit" onClick={handleSubmit}>Submit</Button>
             </Form>
         </Modal.Body>
