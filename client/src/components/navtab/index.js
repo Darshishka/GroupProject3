@@ -9,7 +9,7 @@ function NavTab() {
    };
     return (
         <Navbar collapseOnSelect expand="sm" id="myNavbar">
-            <Navbar.Brand id="myBrand"><Link to="/" id="myLink">Title</Link></Navbar.Brand>
+            <Navbar.Brand id="myBrand"><Link to="/" id="myLink">Favorly</Link></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav">Menu</Navbar.Toggle>
             <Navbar.Collapse id="basic-navbar-nav">
                 <Nav className="ml-auto">

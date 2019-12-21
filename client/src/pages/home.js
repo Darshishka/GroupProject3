@@ -7,14 +7,14 @@ import Signup from "../components/signup";
 function Home(){
     return (
         <div id="homeContainer">
-            <Container className="text-left">
+            <Container className="text-center">
                 <div className="heading">
-                    <h2>This is the home page that will have the log in</h2>
-                    <h4>We'll call the "home" page upon entry something else.</h4>
+                    <h2>Welcome to Favorly!</h2>
+                    <h5>A place where you can create groups and help others</h5>
                 </div>                
+            </Container>           
                 <Signin />
                 <Signup />
-            </Container>           
         </div>
     )
 };
