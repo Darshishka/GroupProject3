@@ -6,10 +6,13 @@ function Sidenav (){
     return (
         <Container id="sidenavContainer" className="align-left">
             <Row>
-                <p>Sidenav thing</p>             
+                <p>Offers</p>             
             </Row>
             <Row>
-                <p>Sidenav thing</p>             
+                <p>Requests</p>             
+            </Row>
+            <Row>
+                <p>All Posts</p>
             </Row>
         </Container>
 
