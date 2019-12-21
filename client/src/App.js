@@ -5,14 +5,24 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/footer";
 import Home from "./pages/home";
 import Main from "./pages/main";
+import { useSelector } from "react-redux";
 
 function App() {
+  const loggedIn = useSelector(state => state.login);  
+  const wrapper = () => {
+    if(!loggedIn){
+      return <Redirect to="/" />
+    }
+    return (
+      <Route path="/main" component={Main} />
+    )
+  }
   return (    
       <Router>
         <div className="App">
           <Router>
             <Switch>
-            <Route path="/main" component={Main} />
+              <Route path="/main" component={wrapper} />
               <Route path="/" component={Home}/>               
             </Switch>
             <Footer />
