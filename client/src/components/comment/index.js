@@ -1,21 +1,34 @@
-import React from "react";
+import React, { useState } from "react";
 import "./index.css";
 import { Modal, Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { CLOSECOMMENT } from "../../actions";
+import API from "../../utils/API";
 
 function Post(){  
-    const showComment = useSelector(state => state.showComment);  
+    const [input, setInput] = useState({});
+    const showComment = useSelector(state => state.showComment); 
+    const userState = useSelector(state => state.userData); 
     const dispatch = useDispatch();
     const close = () => {
         dispatch(CLOSECOMMENT())
     };   
     const handleSubmit = e => {
         e.preventDefault();
-        console.log("placeholder")
+        let data = {
+            message: input.comment
+        }
+        API.comment((userState.email, data), (res, err) => {
+            if(err){console.log(err)}
+            console.log(res)
+        })
     };
     const handleChange = e => {
-        console.log("placeholder")
+        e.persist();
+        const { name, value } = e.target;
+        setInput(input => ({
+            ...input, [name]: value
+        })); 
     };
     return (
         <Modal show={showComment} onHide={close}>

@@ -1,28 +1,37 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./index.css";
-import { Accordion, Card, Col, Row, Button } from "react-bootstrap";
-import { useSelector, useDispatch } from "react-redux";
+import { Accordion, Card, Col, Row, Button, Container } from "react-bootstrap";
+import { useDispatch } from "react-redux";
 import { SHOWPOST, SHOWCOMMENT } from "../../actions";
+import API from "../../utils/API";
 
 function Posts(){
+    const [posts, setPosts] = useState([]);
     const dispatch = useDispatch();
+    useEffect(() => {
+        API.getPosts()
+        .then(res => {
+            setPosts(res);
+        })
+        .catch(err => console.log(err))
+    }, [])
     const showComment = () => {
         dispatch(SHOWCOMMENT())
     };
     const showPost = () => {
         dispatch(SHOWPOST())
     };
-    //on the sign in component, we'll load the post state with the data. Here we are retrieving it.
-    const postState = useSelector(state => state.post);
     //making a fakePost here to see what data coming in could potentially look like and feed into below
     const fakePosts = [{id: 1, title: "Running to IKEA", type: "offer", category: "errands", message: "Hi everyone, I'm running to IKEA later today. Let me know if you need me to pick anything up.", firstName: "Stephanie", lastName: "Lake", url: "", dateCreated: "12/5/19", comments: [{ id: 1, title: "I need something", firstName: "John", lastName: "Smith", message: "Oh, yes please, I need to little shelves for my kids play area, see attached pics", photo: "url", dateCreated: "12/5/18"}]}, {id: 2, title: "I'm good at sewing", type: "offer", category: "miscellaneous", message: "Hi everyone, I just retired and have lots of time. I'm really good at sewing.", firstName: "Tina", lastName: "Turner", url: "", dateCreated: "12/5/19", comments: [{ id: 1, title: "Cushion", firstName: "John", lastName: "Smith", message: "Hi Tina. I live across the street from you, we just moved here! I need a cushion sewed quickly.", photo: "url", dateCreated: "12/8/17"}]}];     
     return (
         <>
-        <Button onClick={showPost}>Post</Button>
-        { fakePosts.length ? (
+        <Container>
+            <Button id="post" onClick={showPost}>Post</Button>          
+        </Container>        
+        { posts.length ? (
             <Accordion id="myPosts" defaultActiveKey="0">
                 {
-                    fakePosts.map((el, i) => (
+                    posts.map((el, i) => (
                         <Card key={el.id}>
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
                                 <Row>

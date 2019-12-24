@@ -1,6 +1,6 @@
 const express = require("express");
 const path = require("path");
-const { User } = require("../models");
+const { User, Post, Comment } = require("../models");
 // Initialize Express
 const app = express();
 //Routes
@@ -31,9 +31,8 @@ app.post("/api/authenticate", (req, res) => {
     })
     .catch(err => res.json(err))
 })
-app.post("/api/register", (req, res) => {
-    console.log("registering");
-    let { firstName, lastName, email, password, crossStreet, referral } = req.body;
+app.post("/api/register", (req, res) => { 
+    let { firstName, lastName, email, password, cross, refer } = req.body;
     User.findAll({
         where: {
             email: email
@@ -48,13 +47,30 @@ app.post("/api/register", (req, res) => {
                 lastName: lastName,
                 email: email,
                 password: password,
-                crossStreet: crossStreet,
-                referral: referral
+                crossStreet: cross,
+                referral: refer
             })
             .then(data => res.json(data))
             .catch(err => res.status(422).json(err))
         }
     })
+    .catch(err => res.json(err))
+});
+app.post("/api/post/:email", (req, res) => {
+    let email = req.params.email;
+    let { type, category, title, message } = req.body;
+    Post.create({
+        title: title,
+        message: message,
+        type: type,
+        category: category,
+        UserEmail: email
+    }).then(data => {
+        res.json(data)
+    }).catch(err => res.json(err))
+});
+app.get("/api/all", (req, res) => {
+    Post.findAll({}).then(data => res.json(data))
     .catch(err => res.json(err))
 });
 app.get("/*", (req, res) => {   
