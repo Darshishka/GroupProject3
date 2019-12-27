@@ -23,7 +23,11 @@ function Signin(){
         if(!userState.password || !/\S+@\S+\.\S+/.test(userState.email)){
             setError({...error, login: "invalid login" })
         } else {
-            API.checkUser(userState.email, userState.password)
+            let data = {
+                email: userState.email, 
+                password: userState.password
+            };
+            API.authenticate(data)
             .then(res => {       
                 if(res.data.email === userState.email){                    
                     dispatch(USERDATA(res.data));            

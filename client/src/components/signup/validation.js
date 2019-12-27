@@ -1,9 +1,15 @@
 export default function validate(inputs) {
-    let errors = {};       
-    if (!inputs.firstName){
+    let errors = {};     
+    let first = inputs.firstName;
+    let last = inputs.lastName;  
+    if (!first){
         errors.firstName = "A first name is required";
-    } else if (!inputs.lastName){
+    } else if (first.length <= 1){
+        errors.firstName = "Name too short";
+    } else if (!last){
         errors.lastName = "A last name is required";
+    } else if (last.length <= 1){
+        errors.firstName = "Name too short";
     } else if (!inputs.email) {
         errors.email = 'An email address is required';
     } else if (!/\S+@\S+\.\S+/.test(inputs.email)) {

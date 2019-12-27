@@ -34,3 +34,9 @@ export const SHOWPOST = () => {
 export const CLOSEPOST = () => {
     return {type: "CLOSEPOST"}
 };
+export const SHOWCOMMENT = () => {
+    return {type: "SHOWCOMMENT"}
+};
+export const CLOSECOMMENT = () => {
+    return {type: "CLOSECOMMENT"}
+};
