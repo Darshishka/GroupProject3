@@ -17,10 +17,11 @@ function Post(){
         e.preventDefault();
         let data = {
             message: input.comment
-        }
-        API.comment((userState.email, data), (res, err) => {
+        };
+        API.comment(userState.email, data)
+        .then((res, err) => {
             if(err){console.log(err)}
-            console.log(res)
+            console.log(res);
         })
     };
     const handleChange = e => {

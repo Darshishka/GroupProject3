@@ -65,12 +65,24 @@ app.post("/api/post/:email", (req, res) => {
         type: type,
         category: category,
         UserEmail: email
-    }).then(data => {
-        res.json(data)
-    }).catch(err => res.json(err))
+    })
+    .then(data => res.json(data))
+    .catch(err => res.json(err))
 });
+app.post("/api/comment/:email", (req, res) => {
+    let email = req.params.email;
+    let message = req.body.message;
+    Comment.create({
+        message: message,
+        UserEmail: email
+    })
+    .then(data => res.json(data))
+    .catch(err => res.json(err))
+})
 app.get("/api/all", (req, res) => {
-    Post.findAll({}).then(data => res.json(data))
+    Post.findAll({
+        include: [Comment]
+      }).then(data => res.json(data))
     .catch(err => res.json(err))
 });
 app.get("/*", (req, res) => {   

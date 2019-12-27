@@ -10,7 +10,9 @@ module.exports = function(sequelize, DataTypes) {
     });
     Comment.associate = function(models) {    
         Comment.belongsTo(models.User, {
-          foreignKey: "email"
+          foreignKey: {
+            allowNull: false
+            }
         });
         Comment.belongsTo(models.Post, {
             foreignKey: {
