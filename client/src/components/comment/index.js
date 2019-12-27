@@ -28,7 +28,7 @@ function Post(){
                     <Form.Label>Comment</Form.Label>
                     <Form.Control onChange={handleChange} name="comment" type="text" />                    
                 </Form.Group>               
-                <Button type="submit" onClick={handleSubmit}>Submit</Button>
+                <Button variant="none" className="submit" type="submit" onClick={handleSubmit}>Submit</Button>
             </Form>
         </Modal.Body>
         <Modal.Footer>
