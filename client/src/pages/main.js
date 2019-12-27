@@ -3,16 +3,15 @@ import { Container, Row, Col } from "react-bootstrap";
 import "./index.css";
 import NavTab from "../components/navtab";
 import Sidenav from "../components/sidenav";
-import AllPosts from "../components/allPosts";
 import Comment from "../components/comment";
-import Post from "../components/post";
+import Post from "../components/addPosts";
 
 function Main(){
     return(
         <>
         <NavTab />
-        <Container>
-            <Sidenav />
+        <Sidenav />
+        <Container >   
             <AllPosts />
             <Post />
             <Comment />

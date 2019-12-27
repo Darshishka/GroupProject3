@@ -1,0 +1,38 @@
+#myTable {
+    margin-right: 50px;
+}
+#myPosts {
+    padding-top: 50px;
+    padding-left: 7%;
+    padding-right: 7%;
+    margin-left: 11%;
+    margin-bottom: 50%;
+}
+#title {
+    font-weight: 500;
+    font-size: larger;
+}
+.userName {
+    width: fit-content;
+}
+.userComment {
+    padding-left: 9%;
+}
+.commentBox {
+    margin-bottom: 20px;
+    padding: 13px;
+}
+.button {
+    color: rgb(131, 82, 49)!important;
+    background-color: rgb(155, 218, 196);
+}
+
+@media only screen and (max-device-width: 700px) {
+    #myPosts {
+        padding: 0%;
+        margin: 0%;
+        margin-left: 130px;
+        padding-bottom: 20%;
+        margin-top: 5%;
+    }
+}

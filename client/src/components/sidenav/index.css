@@ -1,8 +1,15 @@
 #sidenavContainer {
     background-color: rgba(158,158,158,0.2);
     padding: 25px;
-    width: 10%;
-    height: 100%;
+    width: max-content;
+    min-width: 11%;
     position: absolute;
     left: 0;
+    height: 100%;
+}
+@media only screen and (max-device-width: 700px) {
+    #filter {
+        width: min-content;
+        height: 100%;
+    }
 }

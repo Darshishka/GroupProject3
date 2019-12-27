@@ -22,7 +22,8 @@ function App() {
         <div className="App">
           <Router>
             <Switch>
-              <Route path="/main" component={wrapper} />
+              {/* if having issues switch component={wrapper} to component={Main} */}
+              <Route path="/main" component={Main} />
               <Route path="/" component={Home}/>               
             </Switch>
             <Footer />

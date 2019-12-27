@@ -50,9 +50,12 @@ function Posts(){
                             <Card.Body>
                                 {el.Comments.length ? (
                                     el.Comments.map(item => (
-                                    <div>
-                                        <p>{item.message}</p>
-                                        <p>{item.firstName} {item.lastName}, {item.dateCreated}</p>
+                                    <div className="commentBox border">
+                                        <p className="userName">{item.firstName} {item.lastName}</p>
+                                        <div className="userComment">
+                                            <p>{item.message}</p>
+                                            <p>{item.dateCreated}</p>
+                                        </div>
                                     </div>
                                     ))) : (
                                     <p>No comments</p>
