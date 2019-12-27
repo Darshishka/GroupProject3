@@ -3,6 +3,7 @@ import "./index.css";
 import { Accordion, Card, Col, Row, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { SHOWPOST } from "../../actions";
+//import addPosts
 
 function Posts(){
     const dispatch = useDispatch();
@@ -24,7 +25,7 @@ function Posts(){
                                 <Row>
                                     <Col id="title">{el.title}</Col>
                                     <Col className="text-right">{el.firstName} {el.lastName}</Col>
-                                    <Col variant="none" className="text-right"><Button onClick={show}>Comment</Button></Col>
+                                    <Col className="text-right"><Button className="button" variant="none" onClick={show}>Comment</Button></Col>
                                 </Row> 
                                 <Row>
                                     <Col>{el.message}</Col>

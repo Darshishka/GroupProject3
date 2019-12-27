@@ -22,6 +22,10 @@
     margin-bottom: 20px;
     padding: 13px;
 }
+.button {
+    color: rgb(131, 82, 49)!important;
+    background-color: rgb(155, 218, 196);
+}
 
 @media only screen and (max-device-width: 700px) {
     #myPosts {
