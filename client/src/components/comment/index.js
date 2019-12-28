@@ -5,7 +5,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { CLOSECOMMENT } from "../../actions";
 import API from "../../utils/API";
 
-function Post(){  
+function Comment(props){  
     const [input, setInput] = useState({});
     const showComment = useSelector(state => state.showComment); 
     const userState = useSelector(state => state.userData); 
@@ -18,10 +18,11 @@ function Post(){
         let data = {
             message: input.comment
         };
-        API.comment(userState.email, data)
+        let id = props.id;
+        console.log(id);
+        API.comment(userState.email, id, data)
         .then((res, err) => {
-            if(err){console.log(err)}
-            console.log(res);
+            if(err){console.log(err)}           
             close();
             setInput({});
         })
@@ -54,4 +55,4 @@ function Post(){
     )
 }
 
-export default Post;
+export default Comment;

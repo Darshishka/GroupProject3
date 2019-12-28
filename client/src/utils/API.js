@@ -10,8 +10,8 @@ export default {
     authenticate: data => {
         return axios.post(`/api/authenticate`, data)
     },
-    comment: (email, data) => {
-        return axios.post(`/api/comment/${email}`, data)
+    comment: (email, id, data) => {
+        return axios.post(`/api/comment/${email}/${id}`, data)
     },
     post: (email, data) => {
         return axios.post(`/api/post/${email}`, data)

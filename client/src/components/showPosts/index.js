@@ -4,6 +4,7 @@ import { Accordion, Card, Col, Row, Button, Container } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { SHOWPOST, SHOWCOMMENT } from "../../actions";
 import API from "../../utils/API";
+import Comment from "../comment";
 
 function Posts(){
     const [posts, setPosts] = useState([]);
@@ -33,6 +34,7 @@ function Posts(){
                 {
                     posts.map((el, i) => (
                         <Card key={el.id}>
+                            <Comment id={el.id} />
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
                                 <Row>
                                     <Col id="title">{el.title}</Col>

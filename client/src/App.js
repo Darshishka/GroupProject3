@@ -21,9 +21,8 @@ function App() {
       <Router>
         <div className="App">
           <Router>
-            <Switch>
-              {/* if having issues switch component={wrapper} to component={Main} */}
-              <Route path="/main" component={Main} />
+            <Switch>             
+              <Route path="/main" component={wrapper} />
               <Route path="/" component={Home}/>               
             </Switch>
             <Footer />
