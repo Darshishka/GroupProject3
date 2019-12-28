@@ -4,7 +4,8 @@ import "./index.css";
 import NavTab from "../components/navtab";
 import Sidenav from "../components/sidenav";
 import Comment from "../components/comment";
-import Post from "../components/addPosts";
+import AddPost from "../components/addPosts";
+import Posts from "../components/showPosts";
 
 function Main(){
     return(
@@ -12,8 +13,8 @@ function Main(){
         <NavTab />
         <Sidenav />
         <Container >   
-            <AllPosts />
-            <Post />
+            <AddPost />
+            <Posts />
             <Comment />
         </Container>
         </>
