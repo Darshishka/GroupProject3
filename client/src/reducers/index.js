@@ -7,6 +7,7 @@ import changeReducer from "./change";
 import postReducer from "./posts";
 import showPostReducer from "./showPost";
 import showCommentReducer from "./comment";
+import postIdReducer from "./postid";
 
 const allReducers = combineReducers({
     login: loggedReducer,
@@ -16,7 +17,8 @@ const allReducers = combineReducers({
     change: changeReducer,
     post: postReducer,
     showPost: showPostReducer,
-    showComment: showCommentReducer
+    showComment: showCommentReducer,
+    postId: postIdReducer
 });
 
 export default allReducers;

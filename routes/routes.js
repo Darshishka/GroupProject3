@@ -69,19 +69,29 @@ app.post("/api/post/:email", (req, res) => {
     .then(data => res.json(data))
     .catch(err => res.json(err))
 });
-app.post("/api/comment/:email", (req, res) => {
+app.post("/api/comment/:email/:id", (req, res) => {
     let email = req.params.email;
     let message = req.body.message;
+    let id = req.params.id;
     Comment.create({
         message: message,
-        UserEmail: email
+        UserEmail: email,
+        PostId: id
     })
     .then(data => res.json(data))
     .catch(err => res.json(err))
-})
+});
+app.get("/api/comment/:id", (req, res) => {
+    let id = req.params.id;
+    Comment.find({
+        where: {
+            PostId: id
+        }, include: [User]
+    })
+});
 app.get("/api/all", (req, res) => {
     Post.findAll({
-        include: [Comment]
+        include: [Comment, User]
       }).then(data => res.json(data))
     .catch(err => res.json(err))
 });

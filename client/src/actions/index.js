@@ -40,3 +40,6 @@ export const SHOWCOMMENT = () => {
 export const CLOSECOMMENT = () => {
     return {type: "CLOSECOMMENT"}
 };
+export const POSTID = input => {
+    return {type: "POSTID", payload: input}
+};

@@ -19,5 +19,8 @@ export default {
     //route for getting posts, in order of most recent
     getPosts: () => {
         return axios.get(`/api/all`)
+    },
+    getComments: id => {
+        return axios.get(`/api/comment/${id}`)
     }
 };

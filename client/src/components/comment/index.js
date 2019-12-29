@@ -9,6 +9,7 @@ function Comment(props){
     const [input, setInput] = useState({});
     const showComment = useSelector(state => state.showComment); 
     const userState = useSelector(state => state.userData); 
+    const postIdState = useSelector(state => state.postId);
     const dispatch = useDispatch();
     const close = () => {
         dispatch(CLOSECOMMENT())
@@ -18,8 +19,7 @@ function Comment(props){
         let data = {
             message: input.comment
         };
-        let id = props.id;
-        console.log(id);
+        let id = postIdState;  
         API.comment(userState.email, id, data)
         .then((res, err) => {
             if(err){console.log(err)}           
