@@ -81,18 +81,19 @@ app.post("/api/comment/:email/:id", (req, res) => {
     .then(data => res.json(data))
     .catch(err => res.json(err))
 });
-app.get("/api/comment/:id", (req, res) => {
-    let id = req.params.id;
-    Comment.find({
-        where: {
-            PostId: id
-        }, include: [User]
-    })
-});
 app.get("/api/all", (req, res) => {
     Post.findAll({
         include: [Comment, User]
       }).then(data => res.json(data))
+    .catch(err => res.json(err))
+});
+app.get("/api/posts/:category", (req, res) => {
+    let category = res.params.category;
+    Post.findAll({
+        where: {
+            category: category
+        }
+    }).then(data => res.json(data))
     .catch(err => res.json(err))
 });
 app.get("/*", (req, res) => {   

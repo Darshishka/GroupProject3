@@ -20,7 +20,7 @@ export default {
     getPosts: () => {
         return axios.get(`/api/all`)
     },
-    getComments: id => {
-        return axios.get(`/api/comment/${id}`)
+    getPostsCategory: category => {
+        return axios.get(`/api/posts/${category}`)
     }
 };

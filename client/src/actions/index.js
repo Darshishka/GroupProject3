@@ -43,3 +43,6 @@ export const CLOSECOMMENT = () => {
 export const POSTID = input => {
     return {type: "POSTID", payload: input}
 };
+export const FILTER = input => {
+    return {type: "FILTER", payload: input}
+};
