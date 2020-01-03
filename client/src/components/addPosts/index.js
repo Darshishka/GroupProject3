@@ -56,15 +56,20 @@ function AddPost(){
                     <Form.Control onChange={handleChange} name="type" as="select">
                         <option>Select a type</option>
                         <option value="favor">I need a favor</option>
-                        <option value="offer">I have an offer</option>                       
+                        <option value="offer">I have an offer</option>  
                     </Form.Control>
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Category</Form.Label>
                     <Form.Control onChange={handleChange} name="category" as="select">
                         <option>Select a category</option>
-                        <option value="landscaping">Landscaping</option>
-                        <option value="pets">Pet sitting or walking</option> 
+                        <option value="automotive">Automotive</option>     
+                        <option value="childcare">Childcare</option>  
+                        <option value="tools">Tools</option>    
+                        <option value="education">Education</option>     
+                        <option value="home">Home</option> 
+                        <option value="yard">Landscaping</option>
+                        <option value="pet">Pet sitting or walking</option> 
                         <option value="errands">Errands</option>   
                         <option value="other">Other</option>                     
                     </Form.Control>

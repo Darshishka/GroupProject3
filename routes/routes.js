@@ -87,12 +87,23 @@ app.get("/api/all", (req, res) => {
       }).then(data => res.json(data))
     .catch(err => res.json(err))
 });
-app.get("/api/posts/:category", (req, res) => {
-    let category = res.params.category;
+app.get("/api/posts/category/:category", (req, res) => {
+    let category = req.params.category;  
     Post.findAll({
         where: {
             category: category
-        }
+        },
+        include: [Comment, User]
+    }).then(data => res.json(data))
+    .catch(err => res.json(err))
+});
+app.get("/api/posts/type/:type", (req, res) => {
+    let type = req.params.type;
+    Post.findAll({
+        where: {
+            type: type
+        },
+        include: [Comment, User]
     }).then(data => res.json(data))
     .catch(err => res.json(err))
 });

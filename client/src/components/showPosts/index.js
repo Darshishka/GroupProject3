@@ -11,13 +11,28 @@ function Posts(){
     const dispatch = useDispatch();
     const showPostState = useSelector(state => state.showPost);
     const showCommentState = useSelector(state => state.showComment); 
+    const filterState = useSelector(state => state.filter);
     useEffect(() => {
-        API.getPosts()
-        .then(res => {
-            setPosts(res.data);
-        })
-        .catch(err => console.log(err))
-    }, [showPostState, showCommentState])
+        if(filterState.length){
+            if(filterState === "favor" || filterState === "offer"){
+                API.getPostsType(filterState)
+                .then(res => setPosts(res.data))
+                .catch(err => console.log(err))
+            } else if(filterState === "all"){
+                API.getPosts()
+                .then(res => setPosts(res.data))
+                .catch(err => console.log(err))
+            } else {
+                API.getPostsCategory(filterState)
+                .then(res => setPosts(res.data))
+                .catch(err => console.log(err))
+            }            
+        } else {
+            API.getPosts()
+            .then(res => setPosts(res.data))
+            .catch(err => console.log(err))
+        }   
+    }, [showPostState, showCommentState, filterState])
     const showComment = e => {
         dispatch(POSTID(e.target.id));
         dispatch(SHOWCOMMENT());

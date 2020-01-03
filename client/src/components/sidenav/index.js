@@ -43,7 +43,7 @@ function Sidenav (){
                                             onChange={handleChange}
                                             type="radio"
                                             name="category"
-                                            value="child"
+                                            value="childcare"
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
@@ -95,20 +95,7 @@ function Sidenav (){
                                             onChange={handleChange}
                                             type="radio"
                                             name="category"
-                                            value="shopping"
-                                            defaultChecked={false}
-                                            className="form-check-input"
-                                        />
-                                        Shopping
-                                    </label>
-                                </Row>
-                                <Row>
-                                    <label>
-                                        <input
-                                            onChange={handleChange}
-                                            type="radio"
-                                            name="category"
-                                            value="tool"
+                                            value="tools"
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
@@ -128,6 +115,45 @@ function Sidenav (){
                                         Yard
                                     </label>
                                 </Row>
+                                <Row>
+                                    <label>
+                                        <input
+                                            onChange={handleChange}
+                                            type="radio"
+                                            name="category"
+                                            value="errands"
+                                            defaultChecked={false}
+                                            className="form-check-input"
+                                        />
+                                        Errands
+                                    </label>
+                                </Row>
+                                <Row>
+                                    <label>
+                                        <input
+                                            onChange={handleChange}
+                                            type="radio"
+                                            name="category"
+                                            value="other"
+                                            defaultChecked={false}
+                                            className="form-check-input"
+                                        />
+                                        Other
+                                    </label>
+                                </Row>
+                                <Row>
+                                    <label>
+                                        <input
+                                            onChange={handleChange}
+                                            type="radio"
+                                            name="category"
+                                            value="all"
+                                            defaultChecked={false}
+                                            className="form-check-input"
+                                        />
+                                        All
+                                    </label>
+                                </Row>
                             </div>
                         </Card.Body>
                     </Accordion.Collapse>
@@ -145,11 +171,11 @@ function Sidenav (){
                                         onChange={handleChange}
                                         type="radio"
                                         name="postType"
-                                        value="requests"
+                                        value="favor"
                                         defaultChecked={false}
                                         className="form-check-input"
                                     />
-                                    Requests
+                                    Favors
                                 </label>
                             </Row>
                             <Row>
@@ -158,7 +184,7 @@ function Sidenav (){
                                         onChange={handleChange}
                                         type="radio"
                                         name="postType"
-                                        value="offers"
+                                        value="offer"
                                         defaultChecked={false}
                                         className="form-check-input"
                                     />

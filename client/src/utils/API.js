@@ -21,6 +21,9 @@ export default {
         return axios.get(`/api/all`)
     },
     getPostsCategory: category => {
-        return axios.get(`/api/posts/${category}`)
+        return axios.get(`/api/posts/category/${category}`)
+    },
+    getPostsType: type => {
+        return axios.get(`/api/posts/type/${type}`)
     }
 };
