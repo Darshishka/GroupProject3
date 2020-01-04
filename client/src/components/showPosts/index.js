@@ -42,9 +42,7 @@ function Posts(){
     };  
     return (
         <>
-        <Container>
-            <Button id="post" onClick={showPost}>Post</Button>    
-        </Container>        
+        <Button id="post" onClick={showPost}>Post</Button>     
         { posts.length ? (
             <Accordion id="myPosts" defaultActiveKey="0">
                 {
@@ -53,6 +51,10 @@ function Posts(){
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
                                 <Row>
                                     <Col id="title">{el.title}</Col>
+                                    <Col>
+                                        {el.type}
+                                        {el.catagory}
+                                    </Col>
                                     <Col className="text-right">{el.firstName} {el.lastName}</Col>
                                     <Col className="text-right"><Button id={el.id} onClick={showComment}>Comment</Button></Col>
                                     <Comment />
