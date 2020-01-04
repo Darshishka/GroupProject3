@@ -1,10 +1,28 @@
+.modal-header {
+    background-color: #599c2b;
+    color: white;
+}
+
+.form-label {
+    color: #0e464c;
+}
+
 #submit {
-    background-color: rgb(155, 218, 196);
+    background-color: #0e464c;
     border-color: rgb(155, 218, 196);
-    color: rgb(131, 82, 49);
+    color: white;
+    font-size: 9pt;
 }
 #submit:hover, #submit:active, #submit:visited, #submit:focus {
-    background-color: rgb(133, 197, 175);
+    background-color: #599c2b;
     border-color: rgb(133, 197, 175);
-    color: rgb(131, 82, 49);
+    color: #0e464c;
+    font-size: 9pt;
+}
+
+.btn-secondary {
+    color: #fff;
+    background-color: #599c2b;
+    border-color:rgb(155, 218, 196);
+    font-size: 9pt;
 }

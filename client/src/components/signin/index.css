@@ -1,18 +1,544 @@
-#forgot, #signup, #style {
+body {
+    background-color: #0e464c;
+}
+
+img {
     margin-top: 10%;
+    margin-left: -41%;
+    margin-bottom: -30%;
+}
+
+h2 {
+    margin-top: 29%;
+    margin-left: -51%;
+    font-family: "Josefin Sans";
+    color: white;
+    font-size: 20pt;
+    letter-spacing: 30px;
+}
+
+hr {
+    border-top: 1px solid #37adad;
+    margin-left: 22%;
+    margin-right: 61%;
+}
+
+h4 {
+    padding-top: 2%;
+    text-align: center;
+    font-family: "Josefin Sans";
+    color: #0e464c;
+    font-size: 16pt;
+    letter-spacing: 1px;
+}
+
+h5 {
+    font-family: "Segoe UI";
+    font-size: 11pt;
+    font-weight: normal;
+    color: #599c2b;
+    margin-left: 22%;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+#hr2 {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-top: 1px solid #599c2b;
+    margin-left: 7%;
+    margin-right: 7%;
+}
+
+#forgot, #signup, #style {
+    margin-top: 2%;
+    font-size: 9pt;
+    font-weight: bold;
 }
 .button {
-    background-color: rgb(155, 218, 196);
-    border-color: rgb(155, 218, 196);
-    color: rgb(131, 82, 49);
+    color: white !important;
+    font-size: 10pt;
+    background-color: #0e464c !important;
+    margin-bottom: 1px;
 }
+
 .button:hover, .button:active, .button:visited, .button:focus {
-    background-color: rgb(133, 197, 175);
-    border-color: rgb(133, 197, 175);
-    color: rgb(131, 82, 49);
+    background-color: #0e464c;
+    border-color: #0e464c;
+    color: white !important;
 }
 #signInContainer {
+    border-top: 0px;
+    margin-top: -400px;
+    margin-right: 0px;
+    margin-left: 53%;
     width: max-content;
-    padding: 3%;
-    background-color: rgba(235, 226, 227, 0.548);
+    padding: 2%;
+    background-color: #37adad;
+    border-radius: 25px;
 }
+.form-label {
+    font-family: "Segoe UI";
+    font-size: 10pt;
+    font-weight: normal;
+    color: #0e464c;
+    text-align: left;
+    letter-spacing: 1px;
+}
+
+label {
+    display: inline-block;
+    margin-bottom: .2rem;
+}
+
+/*--- Mobile portrait ---*/
+@media only screen and (min-width : 259px) and (max-width : 480px) {
+    img {
+        margin-top: 0rem;
+        width: 80px;
+        height: 60px;
+    }
+    h2 {
+        margin-top: 26%;
+        margin-left: -27%;
+        font-family: "Josefin Sans";
+        color: white;
+        font-size: 9pt;
+        letter-spacing: 10px;
+        margin-bottom: 0rem;
+    }
+    hr {
+        border-top: 1px solid #37adad;
+        margin-left: 21%;
+        margin-right: 61%;
+        margin-top: 7px;
+    }
+    h5 {
+        font-family: "Segoe UI";
+        font-size: 9pt;
+        font-weight: normal;
+        color: #599c2b;
+        margin-left: 21%;
+        text-align: left;
+        letter-spacing: 1px;
+        line-height: 1;
+    }
+    .col {
+        width: 100%;
+    }
+    #signInContainer {
+        margin-top: 2px;
+        margin-right: 0px;
+        margin-left: 15%;
+        width: max-content;
+        padding: 2%;
+        background-color: #37adad;
+        border-radius: 25px;
+    }
+    .btn {
+        line-height: 1;
+    }
+    .button {
+        margin-bottom: 0.5px;
+    }
+    .form-control {
+        line-height: 0.75;
+        height: calc(1em + .50rem + 2px);
+    }
+    #hr2 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    h4 {
+        padding-top: 0px;
+    }
+    label {
+        margin-bottom: 4px;
+        font-size: 4pt;
+    }
+    body {
+        line-height: 1;
+    }
+
+}
+
+/*--- Mobile landscape ---*/
+@media only screen and (min-width : 481px) and (max-width : 556px) {
+     img {
+        margin-top: 0rem;
+        width: 80px;
+        height: 60px;
+    }
+    h2 {
+        margin-top: 26%;
+        margin-left: -28%;
+        font-family: "Josefin Sans";
+        color: white;
+        font-size: 9pt;
+        letter-spacing: 10px;
+        margin-bottom: 0rem;
+    }
+    hr {
+        border-top: 1px solid #37adad;
+        margin-left: 22%;
+        margin-right: 61%;
+        margin-top: 7px;
+    }
+    h5 {
+        font-family: "Segoe UI";
+        font-size: 9pt;
+        font-weight: normal;
+        color: #599c2b;
+        margin-left: 22%;
+        text-align: left;
+        letter-spacing: 1px;
+        line-height: 1;
+    }
+    .col {
+        width: 100%;
+    }
+    #signInContainer {
+        margin-top: 2px;
+        margin-right: 0px;
+        margin-left: 15%;
+        width: max-content;
+        padding: 2%;
+        background-color: #37adad;
+        border-radius: 25px;
+    }
+    .btn {
+        line-height: 1;
+    }
+    .button {
+        margin-bottom: 0.5px;
+    }
+    .form-control {
+        line-height: 0.75;
+        height: calc(1em + .50rem + 2px);
+    }
+    #hr2 {
+        margin-top: 1rem;
+        margin-bottom: 1rem;
+    }
+    h4 {
+        padding-top: 0px;
+    }
+    label {
+        margin-bottom: 4px;
+        font-size: 4pt;
+    }
+    body {
+        line-height: 1;
+    }
+
+}
+
+/*--- Mobile landscape ---*/
+@media only screen and (min-width : 557px) and (max-width : 650px) {
+    img {
+       margin-top: 0rem;
+       width: 30%;
+       height: 30%;
+   }
+   h2 {
+       margin-top: 28%;
+       margin-left: -34%;
+       font-family: "Josefin Sans";
+       color: white;
+       font-size: 14pt;
+       letter-spacing: 10px;
+       margin-bottom: 0rem;
+   }
+   hr {
+       border-top: 1px solid #37adad;
+       margin-left: 22%;
+       margin-right: 51%;
+       margin-top: 7px;
+   }
+   h5 {
+       font-family: "Segoe UI";
+       font-size: 9pt;
+       font-weight: normal;
+       color: #599c2b;
+       margin-left: 22%;
+       text-align: left;
+       letter-spacing: 1px;
+       line-height: 1;
+   }
+   .col {
+       width: 100%;
+   }
+   #signInContainer {
+       margin-top: 2px;
+       margin-right: 0px;
+       margin-left: 15%;
+       width: max-content;
+       padding: 2%;
+       background-color: #37adad;
+       border-radius: 25px;
+   }
+   .btn {
+       line-height: 1;
+   }
+   .button {
+       margin-bottom: 0.5px;
+   }
+   .form-control {
+       line-height: 0.75;
+       height: calc(1em + .50rem + 2px);
+   }
+   #hr2 {
+       margin-top: 1rem;
+       margin-bottom: 1rem;
+   }
+   h4 {
+       padding-top: 0px;
+   }
+   label {
+       margin-bottom: 4px;
+       font-size: 4pt;
+   }
+   body {
+       line-height: 1;
+   }
+
+}
+
+/*--- Tablet sm ---*/
+@media only screen and (min-width : 651px) and (max-width : 707px) {
+    img {
+        margin-top: 10%;
+        margin-left: -46%;
+        margin-bottom: -30%;
+        width: 160px;
+        height: 120px;
+    }
+    
+    h2 {
+        margin-top: 32%;
+        margin-left: -61%;
+        font-family: "Josefin Sans";
+        color: white;
+        font-size: 15pt;
+        letter-spacing: 20px;
+    }
+    
+    hr {
+        border-top: 1px solid #37adad;
+        margin-left: 12%;
+        margin-right: 61%;
+    }
+    
+    h4 {
+        padding-top: 2%;
+        text-align: center;
+        font-family: "Josefin Sans";
+        color: #0e464c;
+        font-size: 16pt;
+        letter-spacing: 1px;
+    }
+    
+    h5 {
+        font-family: "Segoe UI";
+        font-size: 10pt;
+        font-weight: normal;
+        color: #599c2b;
+        margin-left: 12%;
+        text-align: left;
+        letter-spacing: 1px;
+    }
+    
+    #hr2 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border-top: 1px solid #599c2b;
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+    
+    #signInContainer {
+        border-top: 0px;
+        margin-top: -43%;
+        margin-right: 0px;
+        margin-left: 53%;
+        width: max-content;
+        padding: 2%;
+        background-color: #37adad;
+        border-radius: 25px;
+    }
+}
+/*--- Tablet lg ---*/
+@media only screen and (min-width : 707px) and (max-width : 760px) {
+    img {
+        margin-top: 10%;
+        margin-left: -46%;
+        margin-bottom: -30%;
+        width: 160px;
+        height: 120px;
+    }
+    
+    h2 {
+        margin-top: 32%;
+        margin-left: -61%;
+        font-family: "Josefin Sans";
+        color: white;
+        font-size: 15pt;
+        letter-spacing: 20px;
+    }
+    
+    hr {
+        border-top: 1px solid #37adad;
+        margin-left: 12%;
+        margin-right: 61%;
+    }
+    
+    h4 {
+        padding-top: 2%;
+        text-align: center;
+        font-family: "Josefin Sans";
+        color: #0e464c;
+        font-size: 16pt;
+        letter-spacing: 1px;
+    }
+    
+    h5 {
+        font-family: "Segoe UI";
+        font-size: 10pt;
+        font-weight: normal;
+        color: #599c2b;
+        margin-left: 12%;
+        text-align: left;
+        letter-spacing: 1px;
+    }
+    
+    #hr2 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border-top: 1px solid #599c2b;
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+    
+    #signInContainer {
+        border-top: 0px;
+        margin-top: -39%;
+        margin-right: 0px;
+        margin-left: 53%;
+        width: max-content;
+        padding: 2%;
+        background-color: #37adad;
+        border-radius: 25px;
+    }
+}
+
+/*--- Desktop sm ---*/
+@media only screen and (min-width : 761px) and (max-width : 950px) {
+    img {
+        margin-top: 10%;
+        margin-left: -48%;
+        margin-bottom: -30%;
+        width: 180px;
+        height: 140px;
+    }
+    
+    h2 {
+        margin-top: 35%;
+        margin-left: -61%;
+        font-family: "Josefin Sans";
+        color: white;
+        font-size: 15pt;
+        letter-spacing: 20px;
+    }
+    
+    hr {
+        border-top: 1px solid #37adad;
+        margin-left: 12%;
+        margin-right: 61%;
+    }
+    
+    h5 {
+        font-family: "Segoe UI";
+        font-size: 10pt;
+        font-weight: normal;
+        color: #599c2b;
+        margin-left: 12%;
+        text-align: left;
+        letter-spacing: 1px;
+    }
+    
+    #hr2 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border-top: 1px solid #599c2b;
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+    
+    #signInContainer {
+        border-top: 0px;
+        margin-top: -39%;
+        margin-right: 0px;
+        margin-left: 53%;
+        width: max-content;
+        padding: 2%;
+        background-color: #37adad;
+        border-radius: 25px;
+    }
+}
+
+/*--- Desktop md ---*/
+@media only screen and (min-width : 951px) and (max-width : 1000px) {
+    img {
+        margin-top: 25%;
+        margin-left: -48%;
+        margin-bottom: -30%;
+    }
+    
+    h2 {
+        margin-top: 33%;
+        margin-left: -55%;
+        font-family: "Josefin Sans";
+        color: white;
+        font-size: 18pt;
+        letter-spacing: 20px;
+    }
+    
+    hr {
+        border-top: 1px solid #37adad;
+        margin-left: 19%;
+        margin-right: 61%;
+    }
+    
+    h5 {
+        font-family: "Segoe UI";
+        font-size: 10pt;
+        font-weight: normal;
+        color: #599c2b;
+        margin-left: 19%;
+        text-align: left;
+        letter-spacing: 1px;
+    }
+    
+    #hr2 {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+        border-top: 1px solid #599c2b;
+        margin-left: 7%;
+        margin-right: 7%;
+    }
+    
+    #signInContainer {
+        border-top: 0px;
+        margin-top: -39%;
+        margin-right: 0px;
+        margin-left: 53%;
+        width: max-content;
+        padding: 2%;
+        background-color: #37adad;
+        border-radius: 25px;
+    }
+}
+
+
+
+

@@ -1,15 +1,38 @@
 #myFooter {
-    background-color:rgb(155, 218, 196);
+    background-color:#599c2b;
     padding: 10px;
-    font-size: 1em;    
+    font-size: 0.75em;    
 }
 .social {
     padding-right: 10px;  
     font-size: 2em;
 }
 #footerRow a, .name {
-    color: rgb(131, 82, 49)!important;
+    color: white !important;
 }
 .name {
     margin-bottom: 0px;
+}
+
+/*--- Mobile portrait footer---*/
+@media only screen and (min-width : 259px) and (max-width : 480px) {
+    #myFooter {
+        background-color:#599c2b;
+        padding: 1px;
+        font-size: 0.1em;
+    }
+    #footerRow a, .name {
+        color: #599c2b!important;
+    }
+}
+/*--- Mobile landscape footer---*/
+@media only screen and (min-width : 481px) and (max-width : 595px) {
+    #myFooter {
+        background-color:#599c2b;
+        padding: 1px;
+        font-size: 0.1em;
+    }
+    #footerRow a, .name {
+        color: #599c2b!important;
+    }
 }
