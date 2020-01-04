@@ -6,17 +6,21 @@ import showReducer from "./showSign";
 import changeReducer from "./change";
 import postReducer from "./posts";
 import showPostReducer from "./showPost";
+import showCommentReducer from "./comment";
+import postIdReducer from "./postid";
+import filterReducer from "./filter";
 
 const allReducers = combineReducers({
     login: loggedReducer,
     user: userReducer,
     userData: userDataReducer,
-    showSignup: showReducer,
-    closeSignup: showReducer,
+    showSignup: showReducer,    
     change: changeReducer,
     post: postReducer,
     showPost: showPostReducer,
-    closePost: showPostReducer
+    showComment: showCommentReducer,
+    postId: postIdReducer,
+    filter: filterReducer
 });
 
 export default allReducers;

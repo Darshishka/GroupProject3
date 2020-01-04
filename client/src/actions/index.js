@@ -34,3 +34,15 @@ export const SHOWPOST = () => {
 export const CLOSEPOST = () => {
     return {type: "CLOSEPOST"}
 };
+export const SHOWCOMMENT = () => {
+    return {type: "SHOWCOMMENT"}
+};
+export const CLOSECOMMENT = () => {
+    return {type: "CLOSECOMMENT"}
+};
+export const POSTID = input => {
+    return {type: "POSTID", payload: input}
+};
+export const FILTER = input => {
+    return {type: "FILTER", payload: input}
+};
