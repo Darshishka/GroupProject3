@@ -1,5 +1,4 @@
 import { combineReducers } from "redux";
-import loggedReducer from "./login";
 import userReducer from "./user";
 import userDataReducer from "./userdata";
 import showReducer from "./showSign";
@@ -10,8 +9,7 @@ import showCommentReducer from "./comment";
 import postIdReducer from "./postid";
 import filterReducer from "./filter";
 
-const allReducers = combineReducers({
-    login: loggedReducer,
+const allReducers = combineReducers({  
     user: userReducer,
     userData: userDataReducer,
     showSignup: showReducer,    

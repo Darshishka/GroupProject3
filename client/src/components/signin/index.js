@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import "./index.css";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { SIGN_IN, USER, USERDATA, SHOWSIGNUP } from "../../actions";
+import { USER, USERDATA, SHOWSIGNUP } from "../../actions";
 import API from "../../utils/API";
 import { useHistory } from 'react-router-dom';
+import setAuthToken from "../../utils/setAuthToken";
+import jwt_decode from "jwt-decode";
 
 function Signin(){  
     const [ error, setError ] = useState({});     
@@ -29,9 +31,22 @@ function Signin(){
             };
             API.authenticate(data)
             .then(res => {       
-                if(res.data.email === userState.email){                    
-                    dispatch(USERDATA(res.data));            
-                    dispatch(SIGN_IN());                    
+                if(res.data.token){ 
+                    const { token, firstName, lastName } = res.data;      
+                    localStorage.setItem("jwtToken", token);   
+                    // Set token to Auth header
+                    setAuthToken(token);        
+                    // Decode token to get user data
+                    const decoded = jwt_decode(token);
+                    console.log(decoded);
+                    const userData = {
+                        email: decoded.email,
+                        iat: decoded.iat,
+                        exp: decoded.exp,
+                        firstName: firstName,
+                        lastName: lastName
+                    }  
+                    dispatch(USERDATA(userData));  
                     history.push("/main");
                 } else {
                     setError({...error, login: "invalid login" })
