@@ -1,9 +1,5 @@
 #myFooter {
-<<<<<<< HEAD
-    background-color: darkslategray;
-=======
     background-color:#599c2b;
->>>>>>> 36ccfea15f46f773d560ccd7c772eaae174804a0
     padding: 10px;
     font-size: 0.75em;    
 }
@@ -12,11 +8,7 @@
     font-size: 2em;
 }
 #footerRow a, .name {
-<<<<<<< HEAD
-    color: whitesmoke!important;
-=======
     color: white !important;
->>>>>>> 36ccfea15f46f773d560ccd7c772eaae174804a0
 }
 .name {
     margin-bottom: 0px;
