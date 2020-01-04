@@ -1,6 +1,6 @@
 .nav-link{
-    color: rgb(131, 82, 49)!important;
-    background-color: rgb(155, 218, 196);
+    color: white!important;
+    background-color: darkslategray;
     border: none;
     margin-right: 20px;
     font-weight: 300;
@@ -8,15 +8,15 @@
     
 }
 .button:hover {
-    background-color: rgb(155, 218, 196);
+    background-color: darkslategrey;
 
 }
 #myNavbar {
-    background-color: rgb(155, 218, 196);
+    background-color: darkslategray;
 }
 #myLink {
     text-decoration: none;
-    color: rgb(131, 82, 49)!important;
+    color: white!important;
 }
 #globe {
     color: rgb(131, 82, 49);

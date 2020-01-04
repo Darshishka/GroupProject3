@@ -11,8 +11,8 @@ function Main(){
         <>
         <NavTab />
         <Sidenav />
-        <Container >   
-            <AddPost />
+        <AddPost />
+        <Container>   
             <Posts />
         </Container>
         </>
