@@ -61,12 +61,11 @@ function Signin(){
                         <Col className="align-self-center">
                             <Button className="button" variant="none" type="submit" onClick={signIn}>Sign in</Button>
                         </Col>
-                    </Col>
-                    <Col id="rightCol">
+                        <hr id="hr2"></hr>
                         <Col id="forgot" className="text-center">
-                            <Button className="noOutline button" variant="none">Forgot Password?</Button>
+                            <Button className="noOutline button" variant="none">Forgot password?</Button>
                         </Col>
-                        <h4 id="style" className="text-center">-- or --</h4>
+                        <h4 id="style" className="text-center"><em>-</em> or <em>-</em></h4>
                         <Col id="signup" className="text-center">
                             <Button className="button" variant="none" onClick={show}>Sign up</Button>
                         </Col>
