@@ -42,8 +42,8 @@ function Posts(){
     };  
     return (
         <>
-        <Container>
-            <Button id="post" onClick={showPost}>Post</Button>    
+        <Container id="postContainer">
+            <Button id="post" onClick={showPost}>POST</Button>    
         </Container>        
         { posts.length ? (
             <Accordion id="myPosts" defaultActiveKey="0">
@@ -84,7 +84,7 @@ function Posts(){
                 ))}                        
             </Accordion>
         ) : (
-            <p>No posts to display</p>
+            <h7>No posts to display</h7>
         )}
         </>
     )

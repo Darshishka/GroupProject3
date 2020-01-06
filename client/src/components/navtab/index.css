@@ -1,28 +1,54 @@
+@import url('https://fonts.googleapis.com/css?family=Josefin+Sans');
+
 .nav-link{
-    color: rgb(131, 82, 49)!important;
-    background-color: rgb(155, 218, 196);
+    font-family: "Segoe UI";
+    font-size: 10pt;
+    color:#0e464c!important;
+    background-color: #37adad;
     border: none;
     margin-right: 20px;
-    font-weight: 300;
-    text-decoration: none;
-    
+    font-weight: 500;
+    text-decoration: none;    
 }
 .button:hover {
     background-color: rgb(155, 218, 196);
+}
 
+#signOut {
+    font-family: "Segoe UI";
+    background-color: #37adad;
+    letter-spacing: 1px;
+    font-weight: 700;
+    margin-top: 15px;
+}
+#signOut:hover {
+    background-color: #12a463;
 }
 #myNavbar {
-    background-color: rgb(155, 218, 196);
+    background-color: #0e464c;
+    padding-bottom: 20px;
 }
 #myLink {
     text-decoration: none;
-    color: rgb(131, 82, 49)!important;
+    color: white;
 }
 #globe {
-    color: rgb(131, 82, 49);
+    color: #0e464c;
     padding-top: 15px;
     margin-left: 10px;
 }
 #myBrand {
+    font-family: 'Josefin Sans';
     padding-bottom: 15px;
+    padding-top: 21px;
+    padding-left: 5.7em;
+    background-image: url(favorlyHands-sm.png);
+    background-repeat: no-repeat;
+    width: 50px;
+    height: 50px;
+    letter-spacing: 8px;
+    font-size: 16px;
+}
+#myBrand:hover {
+
 }

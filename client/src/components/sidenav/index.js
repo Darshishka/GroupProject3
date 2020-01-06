@@ -19,10 +19,10 @@ function Sidenav (){
                 <Accordion id="filter" defaultActiveKey="0">
                 <Card>
                     <Accordion.Toggle id="filterHead" as={Card.Header} eventKey="0">
-                    By Category
+                    BY CATEGORY
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="0">
-                        <Card.Body>
+                        <Card.Body id="filterBody">
                             <div className="form-check">
                                 <Row>
                                     <label>
@@ -159,11 +159,11 @@ function Sidenav (){
                     </Accordion.Collapse>
                 </Card>
                 <Card>
-                    <Accordion.Toggle as={Card.Header} eventKey="1">
-                    By Post Type
+                    <Accordion.Toggle id="filterHead" as={Card.Header} eventKey="1">
+                    BY POST TYPE
                     </Accordion.Toggle>
                     <Accordion.Collapse eventKey="1">
-                    <Card.Body>
+                    <Card.Body id="filterBody">
                         <div className="form-check">
                             <Row>
                                 <label>
