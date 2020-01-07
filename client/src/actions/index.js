@@ -7,9 +7,6 @@ export const SHOWSIGNUP = () => {
 export const CLOSESIGNUP = () => {
     return { type: "CLOSESIGNUP"}
 };
-export const CHANGE = input => {
-    return {type: "CHANGE", payload: input}
-};
 export const USERDATA = data => {
     return {type: "USERDATA", payload: data}
 };

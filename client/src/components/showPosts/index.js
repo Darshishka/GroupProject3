@@ -5,6 +5,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { SHOWPOST, SHOWCOMMENT, POSTID } from "../../actions";
 import API from "../../utils/API";
 import Comment from "../comment";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faDesktop } from "@fortawesome/free-solid-svg-icons";
 
 function Posts(){
     const [posts, setPosts] = useState([]);
@@ -60,8 +62,8 @@ function Posts(){
                                     <Comment />
                                 </Row>
                                 <Row id="title">
-                                    <Col id="type">{el.type}</Col>
-                                    <Col id="category">{el.category}</Col>
+                                    <Col id="type">{el.type === "post" ? (<FontAwesomeIcon icon={faDesktop} className="type"/>) : <FontAwesomeIcon icon={faDesktop} className="type"/>}</Col>
+                                    <Col id="category">{el.category === "automotive" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : el.category === "child" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : el.category === "education" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : <FontAwesomeIcon icon={faDesktop} className="category"/>}</Col>
                                 </Row>
                                 <Row>
                                     <Col>{el.message}</Col>

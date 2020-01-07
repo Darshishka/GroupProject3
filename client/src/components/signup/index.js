@@ -2,28 +2,28 @@ import React, { useState } from "react";
 import "./index.css";
 import { Modal, Button, Form } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
-import { CLOSESIGNUP, CHANGE } from "../../actions";
+import { CLOSESIGNUP } from "../../actions";
 import validate from "./validation";
 import API from "../../utils/API";
 
 function Signup(){
     const [ errors, setErrors ] = useState({});
-    const showState = useSelector(state => state.showSignup);
-    const inputState = useSelector(state => state.change);  
+    const [ input, setInput ] = useState({});
+    const showState = useSelector(state => state.showSignup);    
     const dispatch = useDispatch();
     const close = () => {
         dispatch(CLOSESIGNUP())
     };    
     const handleSubmit = e => {   
         e.preventDefault();
-        let inputValidate = validate(inputState);    
+        let inputValidate = validate(input);    
         if(Object.keys(inputValidate).length === 0){
-            API.register(inputState)
+            API.register(input)
             .then(res => {
                 if(res.data.email === "email exists"){
                     setErrors({...errors, email: "email exists" })
                 } else {
-                    dispatch(CHANGE({}));
+                    setInput({})
                     close();
                     alert("User saved successfully. You may now log in.");
                     setErrors({});
@@ -31,12 +31,15 @@ function Signup(){
             })
             .catch(err => console.log(err))         
         } else {
-            setErrors(validate(inputState));            
+            setErrors(validate(input));            
         }        
     };
     const handleChange = e => {
         e.persist();
-        dispatch(CHANGE(e.target))
+        const { name, value } = e.target;
+        setInput(input => ({
+            ...input, [name]: value
+        }));
     };
     return (
         <Modal show={showState} onHide={close}>

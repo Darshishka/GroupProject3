@@ -5,17 +5,22 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./components/footer";
 import Home from "./pages/home";
 import Main from "./pages/main";
+import jwt_decode from "jwt-decode";
 
 function App() {
   const wrapper = () => {   
+    const currentTime = Date.now();
     if(localStorage.jwtToken){
-      return (
-        <Route path="/main" component={Main} />
-      )
-    } else {
-      return <Redirect to="/" />
-    }
+      const decoded = jwt_decode(localStorage.jwtToken);
+      if(decoded.exp < currentTime){
+        return (
+          <Route path="/main" component={Main} />
+        )
+      } 
+  } else {
+    return <Redirect to="/" />
   }
+}
   return (    
       <Router>
         <div className="App">

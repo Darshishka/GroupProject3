@@ -2,7 +2,6 @@ import { combineReducers } from "redux";
 import userReducer from "./user";
 import userDataReducer from "./userdata";
 import showReducer from "./showSign";
-import changeReducer from "./change";
 import postReducer from "./posts";
 import showPostReducer from "./showPost";
 import showCommentReducer from "./comment";
@@ -12,8 +11,7 @@ import filterReducer from "./filter";
 const allReducers = combineReducers({  
     user: userReducer,
     userData: userDataReducer,
-    showSignup: showReducer,    
-    change: changeReducer,
+    showSignup: showReducer,
     post: postReducer,
     showPost: showPostReducer,
     showComment: showCommentReducer,
