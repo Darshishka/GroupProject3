@@ -14,9 +14,6 @@
 #myTable {
     margin-right: 50px;
 }
-.accordion {
-    padding-left: 7%;
-}
 .userName {
     font-family: "Segoe UI";
     color:#0e464c;
@@ -34,7 +31,6 @@ p {
     color:white!important;
     background-color: #0e464c;
     border: none;
-    margin-right: 20px;
     font-weight: 500;
     text-decoration: none; 
     letter-spacing: 2px;
@@ -48,9 +44,13 @@ p {
     padding-bottom: 800px;
     margin-bottom: 20%;
 }
-#title {
+#subject {
     font-weight: 500;
     font-size: larger;
+    font-size: 20px;
+}
+#title {
+    width: max-content;
 }
 .userName {
     width: fit-content;
@@ -62,7 +62,6 @@ p {
     margin-bottom: 20px;
     padding: 13px;
 }
-
 #post {
     font-family: "Segoe UI";
     font-size: 12pt;
