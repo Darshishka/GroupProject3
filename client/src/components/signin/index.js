@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./index.css";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { SIGN_IN, USER, USERDATA, SHOWSIGNUP, DELETEUSER } from "../../actions";
+import { USER, USERDATA, SHOWSIGNUP, DELETEUSER } from "../../actions";
 import API from "../../utils/API";
 import { useHistory } from 'react-router-dom';
 import setAuthToken from "../../utils/setAuthToken";
@@ -37,8 +37,7 @@ function Signin(){
                     // Set token to Auth header
                     setAuthToken(token);        
                     // Decode token to get user data
-                    const decoded = jwt_decode(token);
-                    console.log(decoded);
+                    const decoded = jwt_decode(token);                 
                     const userData = {
                         email: decoded.email,
                         iat: decoded.iat,
