@@ -3,14 +3,23 @@ import { Nav, Navbar, Button } from "react-bootstrap";
 import { Link} from "react-router-dom";
 import "./index.css";
 import { useDispatch } from "react-redux";
-import { SIGN_OUT } from "../../actions";
+import { DELETEDATA, DELETEUSER } from "../../actions";
+import setAuthToken from "../../utils/setAuthToken";
+import { useHistory } from 'react-router-dom';
 
 
 
 function NavTab() {
     const dispatch = useDispatch();
+    const history = useHistory();
     const signOut = () => {
-       dispatch(SIGN_OUT())
+        // Remove token from local storage
+        localStorage.removeItem("jwtToken");
+        // Remove auth header for future requests
+        setAuthToken(false);      
+        dispatch(DELETEDATA());
+        dispatch(DELETEUSER());
+        history.push("/main");
     };
     return (
         <Navbar collapseOnSelect expand="sm" id="myNavbar">

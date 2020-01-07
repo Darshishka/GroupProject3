@@ -1,18 +1,3 @@
-//Form input
-    //Title (text)
-    //Message (text)
-    //Post type (select)
-        //Offer
-        //Request
-    //Catagory (select)
-        //Automotive
-        //Child
-        //Education
-        //Home
-        //Pet
-        //Shopping
-        //Tool
-        //Yard
 import React, {useState} from "react";
 import "./index.css";
 import { Modal, Form, Button } from "react-bootstrap";
