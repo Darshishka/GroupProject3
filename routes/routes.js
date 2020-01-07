@@ -1,6 +1,11 @@
 const express = require("express");
 const path = require("path");
 const { User, Post, Comment } = require("../models");
+//bcrypt for password hashing
+const bcrypt = require("bcryptjs");
+//create JWT payload and sign with keys
+const jwt = require("jsonwebtoken");
+const keys = require("../config/keys");
 // Initialize Express
 const app = express();
 //Routes
@@ -17,20 +22,41 @@ app.get("/api/user/email/:email", (req, res) => {
 app.post("/api/authenticate", (req, res) => {
     let { password, email } = req.body;
     User.findOne({
-        where: {
-            password: password,
+        where: {            
             email: email
         }
     })
     .then(data => {      
         if(data){
-            return res.json(data)
+            bcrypt.compare(password, data.password).then(
+                isMatch => {
+                    if(isMatch){
+                        const payload = {
+                            id: data.id,
+                            email: data.email
+                          };
+                          jwt.sign(payload, keys.secretOrKey, {
+                            expiresIn: 31556926 // 1 year in seconds
+                          }, 
+                          (err, token) => {
+                              res.json({
+                                  success: true,
+                                  token: `Bearer ${token}`,
+                                  firstName: data.firstName,
+                                  lastName: data.lastName
+                              });
+                          }
+                        );
+                    } else {
+                        res.json("password incorrect")
+                    }
+                });          
         } else {
-            return res.json("Invalid login")
-        }
+            res.json("user not found")
+        } 
     })
     .catch(err => res.json(err))
-})
+});
 app.post("/api/register", (req, res) => { 
     let { firstName, lastName, email, password, cross, refer } = req.body;
     User.findAll({
@@ -42,16 +68,22 @@ app.post("/api/register", (req, res) => {
         if(data.length){
             return res.json({ email: "email exists"})
         } else {
-            User.create({
-                firstName: firstName,
-                lastName: lastName,
-                email: email,
-                password: password,
-                crossStreet: cross,
-                referral: refer
-            })
-            .then(data => res.json(data))
-            .catch(err => res.status(422).json(err))
+            bcrypt.genSalt(10, (err, salt) => {
+                bcrypt.hash(password, salt, (err, hash) => {
+                    if (err) throw err;
+                    password = hash;
+                    User.create({
+                        firstName: firstName,
+                        lastName: lastName,
+                        email: email,
+                        password: password,
+                        crossStreet: cross,
+                        referral: refer
+                    })
+                    .then(data => res.json(data))
+                    .catch(err => res.status(422).json(err))
+                })
+            })            
         }
     })
     .catch(err => res.json(err))
