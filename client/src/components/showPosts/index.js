@@ -50,15 +50,19 @@ function Posts(){
                         <Card key={el.id}>
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
                                 <Row>
-                                    <Col id="title">{el.title}</Col>
-                                    <Col>
-                                        {el.type}
-                                        {el.catagory}
-                                    </Col>
+                                    <Row id="title">
+                                        <Col id="subject">
+                                            {el.title}
+                                        </Col>
+                                    </Row>
                                     <Col className="text-right">{el.firstName} {el.lastName}</Col>
                                     <Col className="text-right"><Button id={el.id} onClick={showComment}>Comment</Button></Col>
                                     <Comment />
-                                </Row> 
+                                </Row>
+                                <Row id="title">
+                                    <Col id="type">{el.type}</Col>
+                                    <Col id="category">{el.category}</Col>
+                                </Row>
                                 <Row>
                                     <Col>{el.message}</Col>
                                 </Row>
