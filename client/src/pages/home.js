@@ -7,8 +7,8 @@ import Logo from "../components/signin/favorlyHands.png";
 
 function Home(){
     return (
-        <div id="homeContainer">
-            <Container className="text-center">
+        <div id="homeContainer" style={{ background: '#0e464c' }}>
+            <Container className="text-center" style={{ background: '#0e464c' }}>
                 <div className="heading">
                     <img src={Logo}></img>
                     <h2>FAVORLY</h2>

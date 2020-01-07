@@ -86,7 +86,7 @@ function Posts(){
                 ))}                        
             </Accordion>
         ) : (
-            <p>No posts to display</p>
+            <h7>No posts to display</h7>
         )}
         </>
     )

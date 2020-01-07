@@ -1,12 +1,52 @@
+.App { 
+    background-color: #bed9d9;
+}
+
+.container {
+    background-color: #bed9d9;
+}
+
+#postContainer {
+    background-color: #bed9d9;
+    margin-left: 0px;
+}
+
 #myTable {
     margin-right: 50px;
 }
+.accordion {
+    padding-left: 7%;
+}
+.userName {
+    font-family: "Segoe UI";
+    color:#0e464c;
+    font-size: 10pt;
+    font-weight: bold;
+}
+p {
+    font-size: 13px;
+    margin-top: 5px;
+    margin-bottom: 2px;
+}
+.btn-primary {
+    font-family: "Segoe UI";
+    font-size: 10pt;
+    color:white!important;
+    background-color: #0e464c;
+    border: none;
+    margin-right: 20px;
+    font-weight: 500;
+    text-decoration: none; 
+    letter-spacing: 2px;
+}
 #myPosts {
+    background-color: #bed9d9;
     padding-top: 50px;
     padding-left: 7%;
     padding-right: 7%;
     margin-left: 11%;
-    margin-bottom: 50%;
+    padding-bottom: 800px;
+    margin-bottom: 20%;
 }
 #title {
     font-weight: 500;
@@ -22,6 +62,23 @@
     margin-bottom: 20px;
     padding: 13px;
 }
+
+#post {
+    font-family: "Segoe UI";
+    font-size: 12pt;
+    color: white;
+    background-color: #599c2b;
+    border-color: #599c2b;
+    margin-top: 10px;
+    margin-left: -35px;
+    font-weight: 600;
+    letter-spacing: 2px;
+}
+#post:hover {
+    background-color: #12a463;
+    border-color: #12a463;
+}
+
 .button {
     color: white !important;
     font-size: 10pt;

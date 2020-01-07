@@ -1,0 +1,32 @@
+#myPosts {
+    margin-top: -55px;
+}
+
+.card {
+    margin-bottom: 10px;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+.card-body {
+    background-color: #c3e1e1;
+}
+.card-header {
+    background-color: #80b7b7;
+    border-top-right-radius: 7px;
+    border-top-left-radius: 7px;
+}
+.commentBox {
+    background-color: white;
+}
+#title {
+    font-weight: 500;
+    font-size: 12pt !Important;
+    font-weight: bold;
+    color: #0e464c;
+    margin-right: -200px;
+}
+.col {
+    font-family: "Segoe UI";
+    font-size: 10pt;
+    color: #07272b;
+}

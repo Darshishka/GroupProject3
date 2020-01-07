@@ -7,6 +7,8 @@ import { DELETEDATA, DELETEUSER } from "../../actions";
 import setAuthToken from "../../utils/setAuthToken";
 import { useHistory } from 'react-router-dom';
 
+
+
 function NavTab() {
     const dispatch = useDispatch();
     const history = useHistory();
@@ -21,12 +23,12 @@ function NavTab() {
     };
     return (
         <Navbar collapseOnSelect expand="sm" id="myNavbar">
-            <Navbar.Brand id="myBrand"><Link to="/" id="myLink">Favorly</Link></Navbar.Brand>
+            <Navbar.Brand id="myBrand"><Link to="/" id="myLink">FAVORLY</Link></Navbar.Brand>
             <Navbar.Toggle aria-controls="basic-navbar-nav">Menu</Navbar.Toggle>
             <Navbar.Collapse id="basic-navbar-nav">
-                <Nav className="ml-auto">                   
+                <Nav className="ml-auto">
                     <Nav.Item>
-                        <Button onClick={signOut} className="nav-link" >Sign Out</Button>
+                        <Button onClick={signOut} className="nav-link" id="signOut">Sign Out</Button>
                     </Nav.Item>                    
                 </Nav>
             </Navbar.Collapse>
