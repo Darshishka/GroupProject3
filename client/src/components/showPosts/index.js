@@ -52,15 +52,19 @@ function Posts(){
                         <Card key={el.id}>
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
                                 <Row>
-                                    <Col id="title">{el.title}</Col>
-                                    <Col>
-                                        {el.type === "post" ? (<FontAwesomeIcon icon={faDesktop} className="type"/>) : <FontAwesomeIcon icon={faDesktop} className="type"/>}
-                                        {el.category === "automotive" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : el.category === "child" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : el.category === "education" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : <FontAwesomeIcon icon={faDesktop} className="category"/>}
-                                    </Col>
+                                    <Row id="title">
+                                        <Col id="subject">
+                                            {el.title}
+                                        </Col>
+                                    </Row>
                                     <Col className="text-right">{el.firstName} {el.lastName}</Col>
                                     <Col className="text-right"><Button id={el.id} onClick={showComment}>Comment</Button></Col>
                                     <Comment />
-                                </Row> 
+                                </Row>
+                                <Row id="title">
+                                    <Col id="type">{el.type === "post" ? (<FontAwesomeIcon icon={faDesktop} className="type"/>) : <FontAwesomeIcon icon={faDesktop} className="type"/>}</Col>
+                                    <Col id="category">{el.category === "automotive" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : el.category === "child" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : el.category === "education" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : <FontAwesomeIcon icon={faDesktop} className="category"/>}</Col>
+                                </Row>
                                 <Row>
                                     <Col>{el.message}</Col>
                                 </Row>
@@ -88,7 +92,7 @@ function Posts(){
                 ))}                        
             </Accordion>
         ) : (
-            <p>No posts to display</p>
+            <h7>No posts to display</h7>
         )}
         </>
     )
