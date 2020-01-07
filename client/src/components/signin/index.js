@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./index.css";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
-import { USER, USERDATA, SHOWSIGNUP } from "../../actions";
+import { SIGN_IN, USER, USERDATA, SHOWSIGNUP, DELETEUSER } from "../../actions";
 import API from "../../utils/API";
 import { useHistory } from 'react-router-dom';
 import setAuthToken from "../../utils/setAuthToken";
@@ -49,8 +49,9 @@ function Signin(){
                     dispatch(USERDATA(userData));  
                     history.push("/main");
                 } else {
-                    setError({...error, login: "invalid login" })
-                }
+                    setError({...error, login: "invalid login" });
+                    dispatch(DELETEUSER());                   
+                }                
             })
             .catch(err => console.log(err))
         }    
