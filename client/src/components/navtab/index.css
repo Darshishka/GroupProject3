@@ -3,7 +3,7 @@
 .nav-link{
     font-family: "Segoe UI";
     font-size: 10pt;
-    color:#0e464c!important;
+    color: white!important;
     background-color: #37adad;
     border: none;
     margin-right: 20px;
@@ -13,7 +13,6 @@
 .button:hover {
     background-color: rgb(155, 218, 196);
 }
-
 #signOut {
     font-family: "Segoe UI";
     background-color: #37adad;
@@ -32,7 +31,6 @@
     text-decoration: none;
     color: white;
 }
-
 #globe {
     color: #0e464c;
     padding-top: 15px;
@@ -50,6 +48,24 @@
     letter-spacing: 8px;
     font-size: 16px;
 }
-#myBrand:hover {
-
+#profileButton {
+    font-size: 2em;
+}
+.menu {
+    background-color: whitesmoke;
+    padding: 15px;
+    width: 15%;
+    position: absolute;
+    right: 0;
+    z-index: 2;
+    margin-top: -10px;
+    margin-right: 40px;
+}
+.dropdownIcon {
+    font-size: 1.5em;
+    color: gray;
+}
+.dropdownRow {
+    min-height: 40px;
+    padding-bottom: 10px;
 }

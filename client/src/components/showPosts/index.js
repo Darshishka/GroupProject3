@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
-import { Accordion, Card, Col, Row, Button, Container } from "react-bootstrap";
+import { Accordion, Card, Col, Row, Button} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { SHOWPOST, SHOWCOMMENT, POSTID } from "../../actions";
 import API from "../../utils/API";
@@ -76,7 +76,7 @@ function Posts(){
                             <Card.Body>
                                 {el.Comments.length ? (
                                     el.Comments.map(item => (
-                                    <div className="commentBox border">
+                                    <div className="commentBox border" key={item.id}>
                                         <p className="userName">{el.User.firstName} {el.User.lastName}</p>
                                         <div className="userComment">
                                             <p>{item.message}</p>
@@ -92,7 +92,7 @@ function Posts(){
                 ))}                        
             </Accordion>
         ) : (
-            <h7>No posts to display</h7>
+            <h6>No posts to display</h6>
         )}
         </>
     )

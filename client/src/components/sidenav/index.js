@@ -1,6 +1,6 @@
 import React from "react";
 import "./index.css";
-import { Container, Row, Col, Accordion, InputGroup, Card } from "react-bootstrap";
+import { Container, Row, Accordion,  Card } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { FILTER } from "../../actions";
 
