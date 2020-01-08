@@ -54,7 +54,7 @@ function Posts(){
                                 <Row>
                                     <Row id="title">
                                         <Col id="subject">
-                                            {el.title}
+                                            <h6>{el.title}</h6>
                                         </Col>
                                     </Row>
                                     <Col className="text-right">{el.firstName} {el.lastName}</Col>

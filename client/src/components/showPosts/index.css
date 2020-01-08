@@ -1,16 +1,14 @@
 .App { 
-    background-color: #bed9d9;
+    /* background-color: #bed9d9; */
+   
 }
-
 .container {
-    background-color: #bed9d9;
+    /* background-color: #bed9d9; */   
 }
-
 #postContainer {
-    background-color: #bed9d9;
-    margin-left: 0px;
+    /* background-color: #bed9d9; */    
+    margin-left: 0px;    
 }
-
 #myTable {
     margin-right: 50px;
 }
@@ -36,13 +34,13 @@ p {
     letter-spacing: 2px;
 }
 #myPosts {
-    background-color: #bed9d9;
+    /* background-color: #bed9d9; */
     padding-top: 50px;
     padding-left: 7%;
     padding-right: 7%;
     margin-left: 11%;
-    padding-bottom: 800px;
-    margin-bottom: 20%;
+    padding-bottom: 70px;
+    /* margin-bottom: 20%; */
 }
 #subject {
     font-weight: 500;
@@ -77,14 +75,12 @@ p {
     background-color: #12a463;
     border-color: #12a463;
 }
-
 .button {
     color: white !important;
     font-size: 10pt;
     background-color: #0e464c !important;
     margin-bottom: 1px;
 }
-
 @media only screen and (max-device-width: 700px) {
     #myPosts {
         padding: 0%;

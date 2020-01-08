@@ -29,3 +29,9 @@
     border-bottom: 1px solid rgb(216, 214, 214);
     padding-bottom: 5px;;
 }
+#mainContainer {
+    background-color: rgb(248, 244, 244);   
+}
+#pageContainer {
+    height: 100vh;
+}
