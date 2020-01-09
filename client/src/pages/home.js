@@ -11,10 +11,10 @@ function Home(){
             <Container className="text-center" style={{ background: '#0e464c' }}>
                 <div className="heading">
                     <img src={Logo} alt="logo"></img>
-                    <h2>FAVORLY</h2>
+                    <h2 className="h2Style">FAVORLY</h2>
                     <hr></hr>
-                    <h5>A message board to</h5>
-                    <h5>get or give a helping hand</h5>
+                    <h5 className="h5Style">A message board to</h5>
+                    <h5 className="h5Style">get or give a helping hand</h5>
                 </div>                
             </Container>           
                 <Signin />

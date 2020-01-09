@@ -1,12 +1,4 @@
-.App { 
-    /* background-color: #bed9d9; */
-   
-}
-.container {
-    /* background-color: #bed9d9; */   
-}
-#postContainer {
-    /* background-color: #bed9d9; */    
+#postContainer {  
     margin-left: 0px;    
 }
 #myTable {
@@ -34,21 +26,14 @@ p {
     letter-spacing: 2px;
 }
 #myPosts {
-    /* background-color: #bed9d9; */
     padding-top: 50px;
     padding-left: 7%;
     padding-right: 7%;
     margin-left: 11%;
-    padding-bottom: 70px;
-    /* margin-bottom: 20%; */
+    padding-bottom: 70px;  
 }
-#subject {
-    font-weight: 500;
-    font-size: larger;
-    font-size: 20px;
-}
-#title {
-    width: max-content;
+#title {    
+    margin-top: 10px;
 }
 .userName {
     width: fit-content;
@@ -69,9 +54,7 @@ p {
     font-size: 12pt;
     color: white;
     background-color: #599c2b;
-    border-color: #599c2b;
-    /* margin-top: 10px;
-    margin-left: -35px; */
+    border-color: #599c2b;  
     margin: 10px auto;
     font-weight: 600;
     letter-spacing: 2px;
@@ -81,9 +64,9 @@ p {
     border-color: #12a463;
 }
 .button {
-    color: white !important;
+    color: white ;
     font-size: 10pt;
-    background-color: #0e464c !important;
+    background-color: #0e464c;
     margin-bottom: 1px;
 }
 @media only screen and (max-device-width: 700px) {
@@ -101,9 +84,21 @@ p {
     width: 25%;
 }
 #userName {
-    color: #117a4b;
-    font-weight: 600;
-    font-size: 1.1em;
+    color: gray;    
+    font-size: 1.3em;
+}
+#userInitial {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(173, 171, 171,0.8);
+    font-size: 2em;
+    color: lightgray;
+    text-align: center;
+    line-height: 40px;   
+}
+.userNameCol {
+    padding: 0px 10px;
 }
 .commentDate {
     font-size: 0.75em;
@@ -118,4 +113,24 @@ p {
     margin-left: 5px;
     padding-top: 10px;
     font-size: 2em;
+    cursor: pointer;
+}
+#typeAndCategory {
+    padding: 0px;
+}
+.typeIcon {
+    margin-right: 10px;
+}
+#userImage {
+    color: gray;
+    margin-right: 5px;
+    font-size: 2em;
+}
+.like {
+    margin-right: 5px;
+    cursor: pointer;
+}
+#numComments, #numLikes {
+    margin-right: 3px;
+    color: gray;
 }

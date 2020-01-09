@@ -6,7 +6,7 @@ import { SHOWPOST, SHOWCOMMENT, POSTID } from "../../actions";
 import API from "../../utils/API";
 import Comment from "../comment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faComment, faChevronDown, faCarAlt, faBaby, faSchool, faHome, faPaw, faTools, faTree, faShoppingCart, faQuestionCircle, faHandHolding , faHandHoldingHeart,    } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faComment, faChevronDown, faCarAlt, faBaby, faSchool, faHome, faPaw, faTools, faTree, faShoppingCart, faQuestionCircle, faHandHolding , faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 import Moment from 'react-moment';
 
 function Posts(){
@@ -32,20 +32,32 @@ function Posts(){
             }            
         } else {
             API.getPosts()
-            .then(res => {             
+            .then(res => {        
                 setPosts(res.data)})
             .catch(err => console.log(err))
         }   
     }, [showPostState, showCommentState, filterState])
-    const showComment = e => {        
+    const showComment = e => {  
         dispatch(POSTID(e.target.id));
         dispatch(SHOWCOMMENT());
     };
     const showPost = () => {
         dispatch(SHOWPOST())
     };  
+    const addLike = e => {        
+        let id = e.target.id;
+        let num = {likes: e.target.value + 1};
+        API.likePost(id, num)
+        .then(res => {
+            API.getPosts()
+            .then(res => {        
+                setPosts(res.data)})
+            .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
+    }
     return (
-        <Container >
+        <Container >            
         <Button id="post" onClick={showPost}>Post</Button>     
         { posts.length ? (
             <Accordion id="myPosts" defaultActiveKey="0">
@@ -53,9 +65,18 @@ function Posts(){
                     posts.map((el, i) => (
                         <Card key={el.id}>
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
-                                <Row id="title">
-                                    <Col id="type titleIcon">{el.type === "offer" ? (<FontAwesomeIcon icon={faHandHoldingHeart} className="type fa-lg" id="offer"/>) : <FontAwesomeIcon icon={faHandHolding} className="type fa-lg" id="request"/>}</Col>
-                                    <Col id="category">
+                                <Row>
+                                    <Col xs={2} lg={1} >  
+                                        <div id="userInitial">{el.User.firstName[0]}</div>
+                                    </Col>
+                                    <Col className="userNameCol" xs={8} lg={9}>
+                                        <p id="userName">{el.User.firstName} {el.User.lastName}</p> 
+                                    </Col>
+                                    <Col xs={2} id="typeAndCategory" className="text-right">
+                                        <span className="typeIcon" id="type">
+                                        {el.type === "offer" ? (<FontAwesomeIcon icon={faHandHoldingHeart} className="type fa-lg" id="offer"/>) : <FontAwesomeIcon icon={faHandHolding} className="type fa-lg" id="request"/>}    
+                                        </span>   
+                                        <span className="typeIcon" id="category">                            
                                         {el.category === "automotive" ? (<FontAwesomeIcon icon={faCarAlt} className="category fa-lg" id="automotive"/>) : 
                                         el.category === "child" ? (<FontAwesomeIcon icon={faBaby} className="category fa-lg" id="childcare"/>) : 
                                         el.category === "education" ? (<FontAwesomeIcon icon={faSchool} className="category fa-lg" id="education"/>) : 
@@ -66,29 +87,34 @@ function Posts(){
                                         el.category === "errands" ? (<FontAwesomeIcon icon={faShoppingCart} className="category fa-lg" id="errands"/>) :
                                         <FontAwesomeIcon icon={faQuestionCircle} className="category fa-lg" id="other"/>
                                         }
-                                    </Col>
+                                        </span> 
+                                  </Col>
                                 </Row>
+                                <Row>
+                                    <Col id="title">
+                                        <h4>{el.title}</h4>
+                                    </Col> 
+                                </Row> 
                                 <Row>
                                     <Col>
-                                        <p id="userName">{el.firstName} {el.lastName}</p>
+                                        <p>{el.message}</p>
                                     </Col>
-                                </Row>
-                                <Row>                                    
-                                    <Col id="subject">
-                                        <h6>{el.title}</h6>
-                                    </Col> 
-                                </Row>
-                                <Row>
-                                    <Col>{el.message}</Col>
                                 </Row> 
                                 <Row>
                                     <Col className="date">
                                         <Moment format="LL LTS" >{el.createdAt}</Moment>
                                     </Col>                                    
                                 </Row>  
-                                <Row>
-                                    <Col className="text-left"><Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button><FontAwesomeIcon id="chevron" icon={faChevronDown}/></Col>
+                                <Row>                                    
+                                    <Col className="align-content-start" xs={8}>
+                                        <Button id={el.id} value={el.likes} className="like" onClick={addLike}><FontAwesomeIcon icon={faHeart}/> Like </Button>
+                                        <Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button><FontAwesomeIcon id="chevron" icon={faChevronDown}/>
+                                    </Col>
                                     <Comment />
+                                    <Col xs={4} className="align-self-end text-right">
+                                        <span id="numLikes"><FontAwesomeIcon icon={faHeart}/> {el.likes} </span>
+                                        <span id="numComments"><FontAwesomeIcon icon={faComment}/> {el.Comments.length}</span>
+                                    </Col>
                                 </Row>                 
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey={i}>
@@ -111,7 +137,7 @@ function Posts(){
                 ))}                        
             </Accordion>
         ) : (
-            <h6 id="noPosts">No posts to display</h6>
+            <h6 id="noPosts" className="text-right">No posts to display</h6>
         )}
         </Container>
     )

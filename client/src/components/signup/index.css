@@ -2,11 +2,9 @@
     background-color: #599c2b;
     color: white;
 }
-
 .form-label {
     color: #0e464c;
 }
-
 #submit {
     background-color: #0e464c;
     border-color: rgb(155, 218, 196);
@@ -19,7 +17,6 @@
     color: #0e464c;
     font-size: 9pt;
 }
-
 .btn-secondary {
     color: #fff;
     background-color: #599c2b;
