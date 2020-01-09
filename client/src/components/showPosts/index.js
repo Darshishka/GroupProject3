@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
-import { Accordion, Card, Col, Row, Button} from "react-bootstrap";
+import { Accordion, Card, Col, Row, Button, Container} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { SHOWPOST, SHOWCOMMENT, POSTID } from "../../actions";
 import API from "../../utils/API";
@@ -43,7 +43,7 @@ function Posts(){
         dispatch(SHOWPOST())
     };  
     return (
-        <>
+        <Container>
         <Button id="post" onClick={showPost}>Post</Button>     
         { posts.length ? (
             <Accordion id="myPosts" defaultActiveKey="0">
@@ -92,9 +92,9 @@ function Posts(){
                 ))}                        
             </Accordion>
         ) : (
-            <h6>No posts to display</h6>
+            <h6 id="noPosts">No posts to display</h6>
         )}
-        </>
+        </Container>
     )
 };
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { Container } from "react-bootstrap";
+import { Container, Col, Row } from "react-bootstrap";
 import "./index.css";
 import NavTab from "../components/navtab";
 import Sidenav from "../components/sidenav";
@@ -12,7 +12,7 @@ function Main(){
             <NavTab />
             <Sidenav />
             <AddPost />
-            <Container id="pageContainer">   
+            <Container id="pageContainer" className="text-center">   
                 <Posts />
             </Container>
         </div>
