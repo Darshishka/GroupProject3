@@ -100,3 +100,8 @@ p {
     margin-top: 3%;
     width: 25%;
 }
+#userName {
+    color: #117a4b;
+    font-weight: 600;
+    font-size: 1.1em;
+}

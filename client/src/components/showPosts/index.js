@@ -6,7 +6,8 @@ import { SHOWPOST, SHOWCOMMENT, POSTID } from "../../actions";
 import API from "../../utils/API";
 import Comment from "../comment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDesktop } from "@fortawesome/free-solid-svg-icons";
+import { faDesktop, faComment } from "@fortawesome/free-solid-svg-icons";
+import Moment from 'react-moment';
 
 function Posts(){
     const [posts, setPosts] = useState([]);
@@ -31,7 +32,9 @@ function Posts(){
             }            
         } else {
             API.getPosts()
-            .then(res => setPosts(res.data))
+            .then(res => {    
+                console.log(res.data);            
+                setPosts(res.data)})
             .catch(err => console.log(err))
         }   
     }, [showPostState, showCommentState, filterState])
@@ -52,25 +55,30 @@ function Posts(){
                         <Card key={el.id}>
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
                                 <Row>
-                                    <Row id="title">
-                                        <Col id="subject">
-                                            <h6>{el.title}</h6>
-                                        </Col>
-                                    </Row>
-                                    <Col className="text-right">{el.firstName} {el.lastName}</Col>
-                                    <Col className="text-right"><Button id={el.id} onClick={showComment}>Comment</Button></Col>
-                                    <Comment />
+                                    <Col>
+                                        <p id="userName">{el.User.firstName} {el.User.lastName}</p>
+                                    </Col>
                                 </Row>
-                                <Row id="title">
-                                    <Col id="type">{el.type === "post" ? (<FontAwesomeIcon icon={faDesktop} className="type"/>) : <FontAwesomeIcon icon={faDesktop} className="type"/>}</Col>
+                                <Row>                                    
+                                    <Col id="subject">
+                                        <h6>{el.title}</h6>
+                                    </Col> 
+                                </Row>
+                                <Row id="title">                                    
                                     <Col id="category">{el.category === "automotive" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : el.category === "child" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : el.category === "education" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : <FontAwesomeIcon icon={faDesktop} className="category"/>}</Col>
                                 </Row>
                                 <Row>
                                     <Col>{el.message}</Col>
-                                </Row>
-                                <Row>
-                                    <Col>{el.dateCreated}</Col>
                                 </Row> 
+                                <Row>
+                                    <Col>
+                                        <Moment format="LL LTS">{el.createdAt}</Moment>
+                                    </Col>                                    
+                                </Row>  
+                                <Row>
+                                    <Col className="text-right"><Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment</Button></Col>
+                                    <Comment />
+                                </Row>                 
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey={i}>
                             <Card.Body>
@@ -80,7 +88,7 @@ function Posts(){
                                         <p className="userName">{el.User.firstName} {el.User.lastName}</p>
                                         <div className="userComment">
                                             <p>{item.message}</p>
-                                            <p>{item.dateCreated}</p>
+                                            <p>{item.createdAt}</p>
                                         </div>
                                     </div>
                                     ))) : (
