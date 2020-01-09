@@ -6,7 +6,7 @@ import { SHOWPOST, SHOWCOMMENT, POSTID } from "../../actions";
 import API from "../../utils/API";
 import Comment from "../comment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDesktop, faComment, faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { faComment, faChevronDown, faCarAlt, faBaby, faSchool, faHome, faPaw, faTools, faTree, faShoppingCart, faQuestionCircle, faHandHolding , faHandHoldingHeart,    } from "@fortawesome/free-solid-svg-icons";
 import Moment from 'react-moment';
 
 function Posts(){
@@ -53,6 +53,21 @@ function Posts(){
                     posts.map((el, i) => (
                         <Card key={el.id}>
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
+                                <Row id="title">
+                                    <Col id="type titleIcon">{el.type === "offer" ? (<FontAwesomeIcon icon={faHandHoldingHeart} className="type fa-lg" id="offer"/>) : <FontAwesomeIcon icon={faHandHolding} className="type fa-lg" id="request"/>}</Col>
+                                    <Col id="category">
+                                        {el.category === "automotive" ? (<FontAwesomeIcon icon={faCarAlt} className="category fa-lg" id="automotive"/>) : 
+                                        el.category === "child" ? (<FontAwesomeIcon icon={faBaby} className="category fa-lg" id="childcare"/>) : 
+                                        el.category === "education" ? (<FontAwesomeIcon icon={faSchool} className="category fa-lg" id="education"/>) : 
+                                        el.category === "home" ? (<FontAwesomeIcon icon={faHome} className="category fa-lg" id="home"/>) : 
+                                        el.category === "pet" ? (<FontAwesomeIcon icon={faPaw} className="category fa-lg" id="pet"/>) : 
+                                        el.category === "tools" ? (<FontAwesomeIcon icon={faTools} className="category fa-lg" id="tools"/>) :
+                                        el.category === "yard" ? (<FontAwesomeIcon icon={faTree} className="category fa-lg" id="yard"/>) :
+                                        el.category === "errands" ? (<FontAwesomeIcon icon={faShoppingCart} className="category fa-lg" id="errands"/>) :
+                                        <FontAwesomeIcon icon={faQuestionCircle} className="category fa-lg" id="other"/>
+                                        }
+                                    </Col>
+                                </Row>
                                 <Row>
                                     <Col>
                                         <p id="userName">{el.firstName} {el.lastName}</p>
@@ -62,9 +77,6 @@ function Posts(){
                                     <Col id="subject">
                                         <h6>{el.title}</h6>
                                     </Col> 
-                                </Row>
-                                <Row id="title">                                    
-                                    <Col id="category">{el.category === "automotive" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : el.category === "child" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : el.category === "education" ? (<FontAwesomeIcon icon={faDesktop} className="category"/>) : <FontAwesomeIcon icon={faDesktop} className="category"/>}</Col>
                                 </Row>
                                 <Row>
                                     <Col>{el.message}</Col>
