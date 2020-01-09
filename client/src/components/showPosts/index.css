@@ -4,6 +4,9 @@
 #myTable {
     margin-right: 50px;
 }
+#pageContainer {
+    width: 78%;
+}
 .userName {
     font-family: "Segoe UI";
     color:#0e464c;
@@ -29,8 +32,16 @@ p {
     padding-top: 50px;
     padding-left: 7%;
     padding-right: 7%;
-    margin-left: 11%;
-    padding-bottom: 70px;  
+    margin-left: 10%;
+    margin-right: 10%;
+    width: 100%;
+    padding-bottom: 70px;
+}
+#subject {
+    font-weight: 500;
+    font-size: larger;
+    font-size: 20px;
+
 }
 #title {    
     margin-top: 10px;
@@ -72,7 +83,6 @@ p {
 @media only screen and (max-device-width: 700px) {
     #myPosts {
         padding: 0%;
-        margin: 0%;
         margin-left: 130px;
         padding-bottom: 20%;
         margin-top: 5%;
