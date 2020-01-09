@@ -6,7 +6,7 @@ import { SHOWPOST, SHOWCOMMENT, POSTID } from "../../actions";
 import API from "../../utils/API";
 import Comment from "../comment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faDesktop, faComment } from "@fortawesome/free-solid-svg-icons";
+import { faDesktop, faComment, faChevronDown } from "@fortawesome/free-solid-svg-icons";
 import Moment from 'react-moment';
 
 function Posts(){
@@ -32,13 +32,12 @@ function Posts(){
             }            
         } else {
             API.getPosts()
-            .then(res => {    
-                console.log(res.data);            
+            .then(res => {             
                 setPosts(res.data)})
             .catch(err => console.log(err))
         }   
     }, [showPostState, showCommentState, filterState])
-    const showComment = e => {
+    const showComment = e => {        
         dispatch(POSTID(e.target.id));
         dispatch(SHOWCOMMENT());
     };
@@ -56,7 +55,7 @@ function Posts(){
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
                                 <Row>
                                     <Col>
-                                        <p id="userName">{el.User.firstName} {el.User.lastName}</p>
+                                        <p id="userName">{el.firstName} {el.lastName}</p>
                                     </Col>
                                 </Row>
                                 <Row>                                    
@@ -71,12 +70,12 @@ function Posts(){
                                     <Col>{el.message}</Col>
                                 </Row> 
                                 <Row>
-                                    <Col>
-                                        <Moment format="LL LTS">{el.createdAt}</Moment>
+                                    <Col className="date">
+                                        <Moment format="LL LTS" >{el.createdAt}</Moment>
                                     </Col>                                    
                                 </Row>  
                                 <Row>
-                                    <Col className="text-right"><Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment</Button></Col>
+                                    <Col className="text-left"><Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button><FontAwesomeIcon id="chevron" icon={faChevronDown}/></Col>
                                     <Comment />
                                 </Row>                 
                             </Accordion.Toggle>
@@ -88,7 +87,7 @@ function Posts(){
                                         <p className="userName">{el.User.firstName} {el.User.lastName}</p>
                                         <div className="userComment">
                                             <p>{item.message}</p>
-                                            <p>{item.createdAt}</p>
+                                            <Moment format="LL LTS" className="commentDate date">{item.createdAt}</Moment>
                                         </div>
                                     </div>
                                     ))) : (

@@ -25,5 +25,8 @@ export default {
     },
     getPostsType: type => {
         return axios.get(`/api/posts/type/${type}`)
+    },
+    getUserActivity: email => {
+        return axios.get(`/api/activity/email/${email}`)
     }
 };

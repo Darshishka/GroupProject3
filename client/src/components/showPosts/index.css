@@ -105,3 +105,17 @@ p {
     font-weight: 600;
     font-size: 1.1em;
 }
+.commentDate {
+    font-size: 0.75em;
+}
+.date {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: rgb(97, 94, 94);
+}
+#chevron {
+    color: rgb(97, 94, 94);
+    margin-left: 5px;
+    padding-top: 10px;
+    font-size: 2em;
+}

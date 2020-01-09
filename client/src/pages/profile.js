@@ -1,13 +1,20 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Container, Col, Row} from "react-bootstrap";
 import "./index.css";
 import { useSelector } from "react-redux";
 import NavTab from "../components/navtab";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUserCircle } from "@fortawesome/free-solid-svg-icons";
+import API from "../utils/API";
 
 function Profile(){
     const userState = useSelector(state => state.userData);
+    const [ activity, setActivity ] = useState({});
+    useEffect(() => {
+        API.getUserActivity(userState.email).then(res => {
+            console.log(res)
+            setActivity(res.data)})
+    }, []) 
     return (
         <div id="profilePage">
             <NavTab/>
@@ -25,6 +32,15 @@ function Profile(){
                 <Row className="profileRow">
                     <Col>
                         <h6 className="profileSubHeading">Recent Activity</h6>
+                        { activity.length ? (
+                            <div>
+                                { 
+                                    activity.map(el => (
+                                        <p>el</p>
+                                    ))
+                                }
+                            </div>
+                        ) : null }
                     </Col>                    
                 </Row>         
             </Container>
