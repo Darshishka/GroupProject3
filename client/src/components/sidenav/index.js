@@ -3,6 +3,18 @@ import "./index.css";
 import { Container, Row, Col, Accordion, InputGroup, Card } from "react-bootstrap";
 import { useDispatch } from "react-redux";
 import { FILTER } from "../../actions";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCarAlt } from "@fortawesome/free-solid-svg-icons";
+import { faBaby } from "@fortawesome/free-solid-svg-icons";
+import { faSchool } from "@fortawesome/free-solid-svg-icons";
+import { faHome } from "@fortawesome/free-solid-svg-icons";
+import { faPaw } from "@fortawesome/free-solid-svg-icons";
+import { faTools } from "@fortawesome/free-solid-svg-icons";
+import { faTree } from "@fortawesome/free-solid-svg-icons";
+import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
+import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
+import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHandHolding } from "@fortawesome/free-solid-svg-icons";
 
 function Sidenav (){
     const dispatch = useDispatch();
@@ -34,7 +46,7 @@ function Sidenav (){
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
-                                        Automotive
+                                        <FontAwesomeIcon icon={faCarAlt} className="category" id="automotive"/> Automotive
                                     </label>
                                 </Row>
                                 <Row>
@@ -47,7 +59,7 @@ function Sidenav (){
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
-                                        Child
+                                        <FontAwesomeIcon icon={faBaby} className="category" id="childcare"/> Child
                                     </label>
                                 </Row>
                                 <Row>
@@ -60,7 +72,7 @@ function Sidenav (){
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
-                                        Education
+                                        <FontAwesomeIcon icon={faSchool} className="category" id="education"/> Education
                                     </label>
                                 </Row>
                                 <Row>
@@ -73,7 +85,7 @@ function Sidenav (){
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
-                                        Home
+                                        <FontAwesomeIcon icon={faHome} className="category" id="home"/> Home
                                     </label>
                                 </Row>
                                 <Row>
@@ -86,7 +98,7 @@ function Sidenav (){
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
-                                        Pet
+                                        <FontAwesomeIcon icon={faPaw} className="category" id="pet"/> Pet
                                     </label>
                                 </Row>
                                 <Row>
@@ -99,7 +111,7 @@ function Sidenav (){
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
-                                        Tool
+                                        <FontAwesomeIcon icon={faTools} className="category" id="tools"/> Tool
                                     </label>
                                 </Row>
                                 <Row>
@@ -112,7 +124,7 @@ function Sidenav (){
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
-                                        Yard
+                                        <FontAwesomeIcon icon={faTree} className="category" id="yard"/> Yard
                                     </label>
                                 </Row>
                                 <Row>
@@ -125,7 +137,7 @@ function Sidenav (){
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
-                                        Errands
+                                        <FontAwesomeIcon icon={faShoppingCart} className="category" id="errands"/> Errands
                                     </label>
                                 </Row>
                                 <Row>
@@ -138,7 +150,7 @@ function Sidenav (){
                                             defaultChecked={false}
                                             className="form-check-input"
                                         />
-                                        Other
+                                        <FontAwesomeIcon icon={faQuestionCircle} className="category" id="other"/> Other
                                     </label>
                                 </Row>
                                 <Row>
@@ -175,7 +187,7 @@ function Sidenav (){
                                         defaultChecked={false}
                                         className="form-check-input"
                                     />
-                                    Favors
+                                    <FontAwesomeIcon icon={faHandHolding} className="category" id="request"/> Requests
                                 </label>
                             </Row>
                             <Row>
@@ -188,7 +200,7 @@ function Sidenav (){
                                         defaultChecked={false}
                                         className="form-check-input"
                                     />
-                                    Offers
+                                    <FontAwesomeIcon icon={faHandHoldingHeart} className="category" id="offer"/> Offers
                                 </label>
                             </Row>
                             <Row>
