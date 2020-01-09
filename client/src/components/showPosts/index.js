@@ -1,22 +1,13 @@
 import React, { useState, useEffect } from "react";
 import "./index.css";
-import { Accordion, Card, Col, Row, Button, Container } from "react-bootstrap";
+import { Accordion, Card, Col, Row, Button, Container} from "react-bootstrap";
 import { useDispatch, useSelector } from "react-redux";
 import { SHOWPOST, SHOWCOMMENT, POSTID } from "../../actions";
 import API from "../../utils/API";
 import Comment from "../comment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCarAlt } from "@fortawesome/free-solid-svg-icons";
-import { faBaby } from "@fortawesome/free-solid-svg-icons";
-import { faSchool } from "@fortawesome/free-solid-svg-icons";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { faPaw } from "@fortawesome/free-solid-svg-icons";
-import { faTools } from "@fortawesome/free-solid-svg-icons";
-import { faTree } from "@fortawesome/free-solid-svg-icons";
-import { faShoppingCart } from "@fortawesome/free-solid-svg-icons";
-import { faQuestionCircle } from "@fortawesome/free-solid-svg-icons";
-import { faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
-import { faHandHolding } from "@fortawesome/free-solid-svg-icons";
+import { faComment, faChevronDown, faCarAlt, faBaby, faSchool, faHome, faPaw, faTools, faTree, faShoppingCart, faQuestionCircle, faHandHolding , faHandHoldingHeart,    } from "@fortawesome/free-solid-svg-icons";
+import Moment from 'react-moment';
 
 function Posts(){
     const [posts, setPosts] = useState([]);
@@ -41,11 +32,12 @@ function Posts(){
             }            
         } else {
             API.getPosts()
-            .then(res => setPosts(res.data))
+            .then(res => {             
+                setPosts(res.data)})
             .catch(err => console.log(err))
         }   
     }, [showPostState, showCommentState, filterState])
-    const showComment = e => {
+    const showComment = e => {        
         dispatch(POSTID(e.target.id));
         dispatch(SHOWCOMMENT());
     };
@@ -53,7 +45,7 @@ function Posts(){
         dispatch(SHOWPOST())
     };  
     return (
-        <>
+        <Container >
         <Button id="post" onClick={showPost}>Post</Button>     
         { posts.length ? (
             <Accordion id="myPosts" defaultActiveKey="0">
@@ -77,31 +69,37 @@ function Posts(){
                                     </Col>
                                 </Row>
                                 <Row>
-                                    <Row id="title">
-                                        <Col id="subject">
-                                            {el.title}
-                                        </Col>
-                                    </Row>
-                                    <Col className="text-right">{el.firstName} {el.lastName}</Col>
-                                    <Col className="text-right"><Button id={el.id} onClick={showComment}>Comment</Button></Col>
-                                    <Comment />
+                                    <Col>
+                                        <p id="userName">{el.firstName} {el.lastName}</p>
+                                    </Col>
+                                </Row>
+                                <Row>                                    
+                                    <Col id="subject">
+                                        <h6>{el.title}</h6>
+                                    </Col> 
                                 </Row>
                                 <Row>
                                     <Col>{el.message}</Col>
-                                </Row>
-                                <Row>
-                                    <Col>{el.dateCreated}</Col>
                                 </Row> 
+                                <Row>
+                                    <Col className="date">
+                                        <Moment format="LL LTS" >{el.createdAt}</Moment>
+                                    </Col>                                    
+                                </Row>  
+                                <Row>
+                                    <Col className="text-left"><Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button><FontAwesomeIcon id="chevron" icon={faChevronDown}/></Col>
+                                    <Comment />
+                                </Row>                 
                             </Accordion.Toggle>
                             <Accordion.Collapse eventKey={i}>
                             <Card.Body>
                                 {el.Comments.length ? (
                                     el.Comments.map(item => (
-                                    <div className="commentBox border">
+                                    <div className="commentBox border" key={item.id}>
                                         <p className="userName">{el.User.firstName} {el.User.lastName}</p>
                                         <div className="userComment">
                                             <p>{item.message}</p>
-                                            <p>{item.dateCreated}</p>
+                                            <Moment format="LL LTS" className="commentDate date">{item.createdAt}</Moment>
                                         </div>
                                     </div>
                                     ))) : (
@@ -113,9 +111,9 @@ function Posts(){
                 ))}                        
             </Accordion>
         ) : (
-            <h7>No posts to display</h7>
+            <h6 id="noPosts">No posts to display</h6>
         )}
-        </>
+        </Container>
     )
 };
 

@@ -30,7 +30,7 @@ function Signin(){
                 password: userState.password
             };
             API.authenticate(data)
-            .then(res => {       
+            .then(res => { 
                 if(res.data.token){ 
                     const { token, firstName, lastName } = res.data;      
                     localStorage.setItem("jwtToken", token);   
