@@ -22,14 +22,14 @@
 }
 .profileRow {
     margin-top: 15px;
-    border-bottom: 10px solid #bed9d9;
+    border-bottom: 10px solid rgb(248, 244, 244);
     padding-bottom: 15px;
 }
 .profileSubHeading {
     border-bottom: 1px solid rgb(216, 214, 214);
     padding-bottom: 5px;;
 }
-#mainContainer {
+#mainContainer, #profileContainer {
     background-color: rgb(248, 244, 244);   
 }
 #pageContainer {
