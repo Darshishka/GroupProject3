@@ -61,7 +61,8 @@ p {
     padding: 13px;
 }
 #noPosts {
-    
+    margin-top: 25px;
+    font-size: 2em;
 }
 #post {
     font-family: "Segoe UI";
@@ -69,8 +70,9 @@ p {
     color: white;
     background-color: #599c2b;
     border-color: #599c2b;
-    margin-top: 10px;
-    margin-left: -35px;
+    /* margin-top: 10px;
+    margin-left: -35px; */
+    margin: 10px auto;
     font-weight: 600;
     letter-spacing: 2px;
 }

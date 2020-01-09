@@ -43,7 +43,7 @@ function Posts(){
         dispatch(SHOWPOST())
     };  
     return (
-        <Container>
+        <Container >
         <Button id="post" onClick={showPost}>Post</Button>     
         { posts.length ? (
             <Accordion id="myPosts" defaultActiveKey="0">

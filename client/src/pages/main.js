@@ -12,7 +12,7 @@ function Main(){
             <NavTab />
             <Sidenav />
             <AddPost />
-            <Container id="pageContainer" className="text-center">   
+            <Container id="pageContainer">   
                 <Posts />
             </Container>
         </div>
