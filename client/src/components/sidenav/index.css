@@ -46,3 +46,36 @@ h3 {
     }
 }
 
+#automotive {
+    color: red;
+}
+#childcare {
+    color: purple;
+}
+#tools {
+    color: grey;
+}
+#education {
+    color: rgb(199, 199, 49);
+}
+#home {
+    color: navy;
+}
+#yard {
+    color: forestgreen;
+}
+#pet {
+    color: saddlebrown;
+}
+#errands {
+   color: black; 
+}
+#other {
+    color: white;
+}
+#request {
+    color: darkcyan;
+}
+#offer {
+    color: darkred;
+}
