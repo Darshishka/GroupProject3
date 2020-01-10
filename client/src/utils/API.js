@@ -34,5 +34,11 @@ export default {
     },
     likeComment: (id, data) => {
         return axios.put(`/api/comment/like/${id}`, data)
+    },
+    deletePost: id => {
+        return axios.delete(`/api/posts/delete/${id}`)
+    },
+    deleteComment: id => {
+        return axios.delete(`/api/comment/delete/${id}`)
     }
 };

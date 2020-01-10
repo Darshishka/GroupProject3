@@ -170,6 +170,26 @@ app.put("/api/comment/like/:id", (req,res) => {
     }).then(data => res.json(data))
     .catch(err => res.json(err))
 });
+app.delete("/api/posts/delete/:id", (req, res) => {
+    let id = req.params.id;
+    Post.destroy({
+        where: {
+            id: id
+        }
+    })
+    .then(data=> res.json(data))
+    .catch(err =>  res.json(err))
+});
+app.delete("/api/comment/delete/:id", (req, res) => {
+    let id = req.params.id;
+    Comment.destroy({
+        where: {
+            id: id
+        }
+    })
+    .then(data=> res.json(data))
+    .catch(err =>  res.json(err))
+});
 app.get("/*", (req, res) => {   
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });

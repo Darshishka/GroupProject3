@@ -40,7 +40,8 @@ module.exports = function(sequelize, DataTypes) {
           }
       });
       Post.hasMany(models.Comment, {
-        onDelete: "cascade"
+        onDelete: "cascade",
+        hooks: true
       });
     };
     return Post;  

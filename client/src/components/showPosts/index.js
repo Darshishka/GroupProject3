@@ -8,6 +8,7 @@ import Comment from "../comment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faComment, faChevronDown, faCarAlt, faBaby, faSchool, faHome, faPaw, faTools, faTree, faShoppingCart, faQuestionCircle, faHandHolding , faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 import Moment from 'react-moment';
+import { useHistory } from 'react-router-dom';
 
 function Posts(){
     const [posts, setPosts] = useState([]);
@@ -34,7 +35,6 @@ function Posts(){
         } else {
             API.getPosts()
             .then(res => { 
-                console.log(res.data);
                 setPosts(res.data)})
             .catch(err => console.log(err))
         }   
@@ -55,6 +55,24 @@ function Posts(){
             .then(res => {   
                 setPosts(res.data)})
             .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
+    };
+    const deleteComment = e => {
+        let id = e.target.id;
+        API.deleteComment(id)
+        .then(res => {
+            console.log("comment deleted");
+            window.location.reload();
+        })
+        .catch(err => console.log(err))
+    };
+    const deletePost = e => {
+        let id = e.target.id;
+        API.deletePost(id)
+        .then(res => {
+            console.log("post deleted");
+            window.location.reload();
         })
         .catch(err => console.log(err))
     }
@@ -108,12 +126,20 @@ function Posts(){
                                     </Col>                                    
                                 </Row>  
                                 <Row>                                    
-                                    <Col className="align-content-start" xs={8}>
+                                    <Col className="align-content-start" xs={9}>
+                                        {
+                                            userState.email === el.UserEmail ? (
+                                                <Button className="like deleteBtn" id={el.id} onClick={deletePost}>Delete </Button>
+                                            ) : (
+                                                null
+                                            )
+                                        }
+                                        
                                         <Button id={el.id} value={el.likes} className="like" onClick={addLike}><FontAwesomeIcon icon={faHeart}/> Like </Button>
                                         <Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button><FontAwesomeIcon id="chevron" icon={faChevronDown}/>
                                     </Col>
                                     <Comment />
-                                    <Col xs={4} className="align-self-end text-right">
+                                    <Col xs={3} className="align-self-end text-right">
                                         <span id="numLikes"><FontAwesomeIcon icon={faHeart}/> {el.likes} </span>
                                         <span id="numComments"><FontAwesomeIcon icon={faComment}/> {el.Comments.length}</span>
                                     </Col>
@@ -124,7 +150,21 @@ function Posts(){
                                 {el.Comments.length ? (
                                     el.Comments.map(item => (
                                     <div className="commentBox border" key={item.id}>
-                                        <p className="userName">{item.User.firstName} {item.User.lastName}</p>
+                                        <Row>
+                                            <Col xs={4}>
+                                                <p className="userName">{item.User.firstName} {item.User.lastName}</p>
+                                            </Col>
+                                            <Col className="text-right">
+                                                {
+                                                    userState.email === item.UserEmail ? (
+                                                        <Button className="deleteBtn" id={item.id} onClick={deleteComment}>Delete</Button>
+                                                    ) : (
+                                                        null
+                                                    )
+                                                }
+                                            </Col>
+                                        </Row>
+                                       
                                         <div className="userComment">
                                             <p>{item.message}</p>
                                             <Moment format="LL LTS" className="commentDate date">{item.createdAt}</Moment>

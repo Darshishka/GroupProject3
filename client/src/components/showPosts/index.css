@@ -49,9 +49,6 @@ p {
 .userName {
     width: fit-content;
 }
-.userComment {
-    padding-left: 9%;
-}
 .commentBox {
     margin-bottom: 20px;
     padding: 13px;
@@ -143,4 +140,7 @@ p {
 #numComments, #numLikes {
     margin-right: 3px;
     color: gray;
+}
+.deleteBtn {
+    background-color: gray;
 }
