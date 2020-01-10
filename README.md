@@ -7,19 +7,21 @@ This full stack ReactJS neighborhood app uses Redux for state management, Sequel
 ## Technologies and Dependencies
 - JavaScript
 - ReactJS
-- Redux and React-Redux
-- Bootstrap and React-Bootstrap
-- Sequelize (mySQL)
+- Redux and [React-Redux](https://www.npmjs.com/package/bcrypt)
+- [Redux Persist](https://www.npmjs.com/package/redux-persist) 
+- Bootstrap and [React-Bootstrap](https://www.npmjs.com/package/react-bootstrap)
+- Sequelize ORM ( with mySQL)
 - Node.js and Express
 - User authentication and validation
-- Bcrypt
+- [Bcrypt](https://www.npmjs.com/package/bcrypt)
 
 ## Key Features
 
 * Clean, ES6 JavaScript code
 * Express and express.Router() to handle server routes
 * ReactJS UI 
-* State management using Redux
+* State management using Redux and Redux Persist to persist the Redux store
+* User sign-up
 * User authentication with JWT and local storage for persistance 
 * Bcrypt for password salting and hashing
 * Restricted routes in ReactJS using react-router-dom
