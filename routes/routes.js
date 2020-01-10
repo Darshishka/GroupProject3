@@ -115,7 +115,7 @@ app.post("/api/comment/:email/:id", (req, res) => {
 });
 app.get("/api/all", (req, res) => {
     Post.findAll({
-        include: [Comment, User]
+        include: [{model: Comment, include: [User]}, User]
       }).then(data => res.json(data))
     .catch(err => res.json(err))
 });

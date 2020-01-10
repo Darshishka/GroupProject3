@@ -14,6 +14,7 @@ function Posts(){
     const dispatch = useDispatch();
     const showPostState = useSelector(state => state.showPost);
     const showCommentState = useSelector(state => state.showComment); 
+    const userState = useSelector(state => state.userData);
     const filterState = useSelector(state => state.filter);
     useEffect(() => {
         if(filterState.length){
@@ -32,11 +33,12 @@ function Posts(){
             }            
         } else {
             API.getPosts()
-            .then(res => {        
+            .then(res => { 
+                console.log(res.data);
                 setPosts(res.data)})
             .catch(err => console.log(err))
         }   
-    }, [showPostState, showCommentState, filterState])
+    }, [showPostState, showCommentState, filterState])   
     const showComment = e => {  
         dispatch(POSTID(e.target.id));
         dispatch(SHOWCOMMENT());
@@ -46,11 +48,11 @@ function Posts(){
     };  
     const addLike = e => {        
         let id = e.target.id;
-        let num = {likes: e.target.value + 1};
+        let num = {likes: parseInt(e.target.value) + 1};
         API.likePost(id, num)
         .then(res => {
             API.getPosts()
-            .then(res => {        
+            .then(res => {   
                 setPosts(res.data)})
             .catch(err => console.log(err))
         })
@@ -59,7 +61,7 @@ function Posts(){
     return (
         <Container >            
         <Button id="post" onClick={showPost}>Post</Button>     
-        { posts.length ? (
+        { posts.length > 0 ? (
             <Accordion id="myPosts" defaultActiveKey="0">
                 {
                     posts.map((el, i) => (
@@ -69,7 +71,7 @@ function Posts(){
                                     <Col xs={2} lg={1} >  
                                         <div id="userInitial">{el.User.firstName[0]}</div>
                                     </Col>
-                                    <Col className="userNameCol" xs={8} lg={9}>
+                                    <Col className="userNameCol" xs={8} lg={9}>                                    
                                         <p id="userName">{el.User.firstName} {el.User.lastName}</p> 
                                     </Col>
                                     <Col xs={2} id="typeAndCategory" className="text-right">
@@ -122,7 +124,7 @@ function Posts(){
                                 {el.Comments.length ? (
                                     el.Comments.map(item => (
                                     <div className="commentBox border" key={item.id}>
-                                        <p className="userName">{el.User.firstName} {el.User.lastName}</p>
+                                        <p className="userName">{item.User.firstName} {item.User.lastName}</p>
                                         <div className="userComment">
                                             <p>{item.message}</p>
                                             <Moment format="LL LTS" className="commentDate date">{item.createdAt}</Moment>
