@@ -25,7 +25,7 @@ function Sidenav (){
     return (
         <Container id="sidenavContainer" className="align-left">
             <Row>
-                <h3>Filters</h3>
+                <h3 id="filterHeader">Filters</h3>
             </Row>
             <Row>
                 <Accordion id="filter" defaultActiveKey="0">

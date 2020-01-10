@@ -139,6 +139,37 @@ app.get("/api/posts/type/:type", (req, res) => {
     }).then(data => res.json(data))
     .catch(err => res.json(err))
 });
+app.get("/api/activity/email/:email", (req, res) => {
+    let email = req.params.email;
+    User.findAll({
+        where: {
+            email: email
+        },
+        include: [Comment, Post]
+    }).then(data => res.json(data))
+    .catch(err => res.json(err))
+});
+app.put("/api/posts/like/:id", (req,res) => {
+    let id = req.params.id;
+    console.log(req.body)
+    Post.update({
+        likes: parseInt(req.body.likes)},{
+        where: {
+            id: id
+        }
+    }).then(data => res.json(data))
+    .catch(err => res.json(err))
+});
+app.put("/api/comment/like/:id", (req,res) => {
+    let id = req.params.id;
+    Comment.update({
+        likes: parseInt(req.body.likes)},{
+        where: {
+            id: id
+        }
+    }).then(data => res.json(data))
+    .catch(err => res.json(err))
+});
 app.get("/*", (req, res) => {   
     res.sendFile(path.join(__dirname, "../client/build/index.html"));
 });

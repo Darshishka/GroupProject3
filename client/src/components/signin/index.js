@@ -80,7 +80,7 @@ function Signin(){
                         <Col id="forgot" className="text-center">
                             <Button className="noOutline button" variant="none">Forgot password?</Button>
                         </Col>
-                        <h4 id="style" className="text-center"><em>-</em> or <em>-</em></h4>
+                        <h4 id="style" className="h4Style" className="text-center"><em>-</em> or <em>-</em></h4>
                         <Col id="signup" className="text-center">
                             <Button className="button" variant="none" onClick={show}>Sign up</Button>
                         </Col>

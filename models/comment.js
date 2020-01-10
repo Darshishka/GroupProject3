@@ -6,6 +6,10 @@ module.exports = function(sequelize, DataTypes) {
         validate: {
             len: [1]
         }
+      },
+      likes: {
+        type: DataTypes.INTEGER,
+        defaultValue: 0      
       }
     });
     Comment.associate = function(models) {    

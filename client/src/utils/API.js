@@ -28,5 +28,11 @@ export default {
     },
     getUserActivity: email => {
         return axios.get(`/api/activity/email/${email}`)
+    },
+    likePost: (id, data) => {
+        return axios.put(`/api/posts/like/${id}`, data)
+    },
+    likeComment: (id, data) => {
+        return axios.put(`/api/comment/like/${id}`, data)
     }
 };

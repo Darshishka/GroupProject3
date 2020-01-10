@@ -2,7 +2,7 @@
     padding-bottom: 5%;
 }
 #profileContainer {
-    min-height: 400px;
+    min-height: 200px;
     background-color: whitesmoke;
     margin-top: 25px;
     position: absolute;
@@ -20,7 +20,7 @@
     background-image: url("../images/checkerboard-cross.png");
     height: 50px;
 }
-.profileRow {
+.activityRow {
     margin-top: 15px;
     border-bottom: 10px solid rgb(248, 244, 244);
     padding-bottom: 15px;
@@ -29,11 +29,15 @@
     border-bottom: 1px solid rgb(216, 214, 214);
     padding-bottom: 5px;;
 }
-#mainContainer, #profileContainer {
+#mainContainer  {
     background-color: rgb(248, 244, 244);  
     height: 100%; 
+    min-height: 800px;
 }
-#pageContainer {
-    
+#pageContainer {    
     width: 70%;
 }
+.nameRow {
+    margin-bottom: 15px;
+}
+
