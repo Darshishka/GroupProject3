@@ -40,4 +40,9 @@
 .nameRow {
     margin-bottom: 15px;
 }
+#homeContainer {
+    background: #0e464c;
+    padding-bottom: 50px;
+    height: 100vh;
+}
 

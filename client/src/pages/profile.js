@@ -23,7 +23,7 @@ function Profile(){
                 })
             }           
          })
-    }, []) 
+    },[]); 
     return (
         <div id="profilePage">
             <NavTab/>
