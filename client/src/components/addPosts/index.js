@@ -1,9 +1,11 @@
 import React, {useState} from "react";
 import "./index.css";
-import { Modal, Form, Button } from "react-bootstrap";
+import { Modal, Form, Button, InputGroup } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { CLOSEPOST } from "../../actions";
 import API from "../../utils/API";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faImage } from '@fortawesome/free-solid-svg-icons'
 
 function AddPost(){  
     const [input, setInput] = useState({});
@@ -29,6 +31,10 @@ function AddPost(){
             ...input, [name]: value
         })); 
     };
+    const fileUpload = e => {
+        const files = Array.from(e.target.files);
+        console.log(files);
+    }
     return (
         <Modal show={showPost} onHide={close}>
         <Modal.Header closeButton>
@@ -66,7 +72,10 @@ function AddPost(){
                 <Form.Group>
                     <Form.Label>Message</Form.Label>
                     <Form.Control onChange={handleChange} name="message" type="text" />                    
-                </Form.Group>                 
+                </Form.Group>  
+                <Form.Group>                   
+                    <Form.Control type='file' id='single' onChange={fileUpload} />
+                </Form.Group>               
                 <Button type="submit" onClick={handleSubmit}>Submit</Button>
             </Form>
         </Modal.Body>
