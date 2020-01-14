@@ -125,7 +125,7 @@ app.get("/api/posts/category/:category", (req, res) => {
         where: {
             category: category
         },
-        include: [Comment, User]
+        include: [{model: Comment, include: [User]}, User]
     }).then(data => res.json(data))
     .catch(err => res.json(err))
 });
@@ -135,7 +135,7 @@ app.get("/api/posts/type/:type", (req, res) => {
         where: {
             type: type
         },
-        include: [Comment, User]
+        include: [{model: Comment, include: [User]}, User]
     }).then(data => res.json(data))
     .catch(err => res.json(err))
 });

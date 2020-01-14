@@ -8,7 +8,6 @@ import Comment from "../comment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart, faComment, faChevronDown, faCarAlt, faBaby, faSchool, faHome, faPaw, faTools, faTree, faShoppingCart, faQuestionCircle, faHandHolding , faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
 import Moment from 'react-moment';
-import { useHistory } from 'react-router-dom';
 
 function Posts(){
     const [posts, setPosts] = useState([]);
@@ -29,7 +28,9 @@ function Posts(){
                 .catch(err => console.log(err))
             } else {
                 API.getPostsCategory(filterState)
-                .then(res => setPosts(res.data))
+                .then(res => {                    
+                    console.log(res.data)
+                    setPosts(res.data)})
                 .catch(err => console.log(err))
             }            
         } else {
