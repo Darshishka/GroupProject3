@@ -28,8 +28,7 @@ function Posts(){
                 .catch(err => console.log(err))
             } else {
                 API.getPostsCategory(filterState)
-                .then(res => {                    
-                    console.log(res.data)
+                .then(res => {    
                     setPosts(res.data)})
                 .catch(err => console.log(err))
             }            
