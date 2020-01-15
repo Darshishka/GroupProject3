@@ -1,6 +1,7 @@
 const express = require("express");
 const path = require("path");
 const { User, Post, Comment } = require("../models");
+const fs = require("fs");
 //bcrypt for password hashing
 const bcrypt = require("bcryptjs");
 //create JWT payload and sign with keys
@@ -8,6 +9,9 @@ const jwt = require("jsonwebtoken");
 const keys = require("../config/keys");
 // Initialize Express
 const app = express();
+//Multer to process image data
+const multer = require('multer');
+const upload = multer({ dest: 'public/images/uploads/' });
 //Routes
 app.get("/api/user/email/:email", (req, res) => {  
     let email = req.params.email;
@@ -88,18 +92,23 @@ app.post("/api/register", (req, res) => {
     })
     .catch(err => res.json(err))
 });
-app.post("/api/post/:email", (req, res) => {
-    let email = req.params.email;
-    let { type, category, title, message } = req.body;
+app.post("/api/post/:email", upload.single('file'), (req, res) => {
+    let email = req.params.email;    
+    let { type, category, title, message } = req.body;    
+    let imageData = fs.readFileSync(req.file.path);
     Post.create({
         title: title,
         message: message,
         type: type,
         category: category,
-        UserEmail: email
+        UserEmail: email,
+        image: imageData
     })
     .then(data => res.json(data))
-    .catch(err => res.json(err))
+    .catch(err => {
+        console.log(`this is the error: ${err} ${err.field}`);
+        res.json(err)
+    })
 });
 app.post("/api/comment/:email/:id", (req, res) => {
     let email = req.params.email;

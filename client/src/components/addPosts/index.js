@@ -4,20 +4,26 @@ import { Modal, Form, Button, InputGroup } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { CLOSEPOST } from "../../actions";
 import API from "../../utils/API";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faImage } from '@fortawesome/free-solid-svg-icons'
 
 function AddPost(){  
     const [input, setInput] = useState({});
+    const [image, setImage] = useState({});
+    const [file, setFile] = useState({});
     const showPost = useSelector(state => state.showPost);  
     const userState = useSelector(state => state.userData);
     const dispatch = useDispatch();
+    let data = new FormData();
     const close = () => {
         dispatch(CLOSEPOST())
     };   
     const handleSubmit = e => {
-        e.preventDefault();
-        API.post(userState.email, input)
+        e.preventDefault();   
+        console.log(data);
+        for(const i in input){
+            data.append(i, input[i])
+        }   
+       data.append('file', image)
+        API.post(userState.email, data)
         .then(res => {
             close();
             setInput({});
@@ -32,9 +38,12 @@ function AddPost(){
         })); 
     };
     const fileUpload = e => {
-        const files = Array.from(e.target.files);
-        console.log(files);
-    }
+        const files = e.target.files;    
+        console.log(e.target.files[0])    
+        const src = URL.createObjectURL(files[0]);       
+        setFile(src);
+        setImage(e.target.files[0]);
+    };
     return (
         <Modal show={showPost} onHide={close}>
         <Modal.Header closeButton>
@@ -71,12 +80,18 @@ function AddPost(){
                 </Form.Group>  
                 <Form.Group>
                     <Form.Label>Message</Form.Label>
-                    <Form.Control onChange={handleChange} name="message" type="text" />                    
+                    <Form.Control onChange={handleChange} name="message" type="text" as="textarea" rows="5" />  
                 </Form.Group>  
-                <Form.Group>                   
-                    <Form.Control type='file' id='single' onChange={fileUpload} />
+                <Form.Group>    
+                    { file.length ? (
+                        <img src={file} alt="upload preview" id="previewImg"/>   
+                    ) : (
+                        null
+                    )
+                    }            
+                    <Form.Control type='file' id='single' onChange={fileUpload} />                    
                 </Form.Group>               
-                <Button type="submit" onClick={handleSubmit}>Submit</Button>
+                <Button type="submit" onClick={handleSubmit}>Submit</Button>             
             </Form>
         </Modal.Body>
         <Modal.Footer>

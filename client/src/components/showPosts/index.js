@@ -29,13 +29,14 @@ function Posts(){
             } else {
                 API.getPostsCategory(filterState)
                 .then(res => {                    
-                    console.log(res.data)
+                    console.log(res.data);
                     setPosts(res.data)})
                 .catch(err => console.log(err))
             }            
         } else {
             API.getPosts()
             .then(res => { 
+                console.log(res.data)
                 setPosts(res.data)})
             .catch(err => console.log(err))
         }   
@@ -76,7 +77,11 @@ function Posts(){
             window.location.reload();
         })
         .catch(err => console.log(err))
-    }
+    };
+    const processImage = res => {        
+        let imageURL = 'data:image/png;base64,' + Buffer.from(res.data).toString('base64')        
+        return imageURL;
+    };
     return (
         <Container >            
         <Button id="post" onClick={showPost}>Post</Button>     
@@ -119,6 +124,7 @@ function Posts(){
                                 <Row>
                                     <Col>
                                         <p>{el.message}</p>
+                                        <img src={processImage(el.image)} alt="post photo"/>
                                     </Col>
                                 </Row> 
                                 <Row>

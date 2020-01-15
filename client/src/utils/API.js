@@ -14,7 +14,11 @@ export default {
         return axios.post(`/api/comment/${email}/${id}`, data)
     },
     post: (email, data) => {
-        return axios.post(`/api/post/${email}`, data)
+        return axios.post(`/api/post/${email}`, data, {
+            headers: {
+                'content-type': 'multipart/form-data'
+            }
+        })
     },
     //route for getting posts, in order of most recent
     getPosts: () => {
