@@ -14,6 +14,7 @@ This full stack ReactJS neighborhood app uses Redux for state management, Sequel
 - Node.js and Express
 - User authentication and validation
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- Multer for back end photo upload parsing
 
 ## Key Features
 
@@ -25,6 +26,7 @@ This full stack ReactJS neighborhood app uses Redux for state management, Sequel
 * User authentication with JWT and local storage for persistance 
 * Bcrypt for password salting and hashing
 * Restricted routes in ReactJS using react-router-dom
+* Multer for photo upload
 
 * Creating a new user
 
