@@ -36,7 +36,6 @@ function Posts(){
         } else {
             API.getPosts()
             .then(res => { 
-                console.log(res.data)
                 setPosts(res.data)})
             .catch(err => console.log(err))
         }   
@@ -124,7 +123,10 @@ function Posts(){
                                 <Row>
                                     <Col>
                                         <p>{el.message}</p>
-                                        <img src={processImage(el.image)} alt="post photo"/>
+                                        { el.image ? (
+                                            <img src={processImage(el.image)} alt="post photo"/>
+                                        ) : null
+                                        }                                        
                                     </Col>
                                 </Row> 
                                 <Row>

@@ -93,9 +93,12 @@ app.post("/api/register", (req, res) => {
     .catch(err => res.json(err))
 });
 app.post("/api/post/:email", upload.single('file'), (req, res) => {
-    let email = req.params.email;    
-    let { type, category, title, message } = req.body;    
-    let imageData = fs.readFileSync(req.file.path);
+    let email = req.params.email;        
+    let { type, category, title, message } = req.body;  
+    let imageData;  
+    if(req.file){
+        imageData = fs.readFileSync(req.file.path);
+    }    
     Post.create({
         title: title,
         message: message,
@@ -160,7 +163,6 @@ app.get("/api/activity/email/:email", (req, res) => {
 });
 app.put("/api/posts/like/:id", (req,res) => {
     let id = req.params.id;
-    console.log(req.body)
     Post.update({
         likes: parseInt(req.body.likes)},{
         where: {
