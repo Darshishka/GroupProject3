@@ -29,11 +29,7 @@ p {
     letter-spacing: 2px;
 }
 #myPosts {
-    padding-top: 50px;
-    padding-left: 7%;
-    padding-right: 7%;
-    margin-left: 10%;
-    margin-right: 10%;
+    padding-top: 50px;    
     width: 100%;
     padding-bottom: 70px;
 }
@@ -41,7 +37,6 @@ p {
     font-weight: 500;
     font-size: larger;
     font-size: 20px;
-
 }
 #title {    
     margin-top: 10px;
