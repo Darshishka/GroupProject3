@@ -10,7 +10,7 @@ function Home(){
         <div id="homeContainer">
             <Container className="text-center" style={{ background: '#0e464c' }}>
                 <div className="heading">
-                    <img src={Logo} alt="logo"></img>
+                    <img src={Logo} className="logo" alt="logo"></img>
                     <h2 className="h2Style">FAVORLY</h2>
                     <hr></hr>
                     <h5 className="h5Style">A message board to</h5>

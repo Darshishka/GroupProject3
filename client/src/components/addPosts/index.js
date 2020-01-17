@@ -4,23 +4,53 @@ import { Modal, Form, Button } from "react-bootstrap";
 import { useSelector, useDispatch } from "react-redux";
 import { CLOSEPOST } from "../../actions";
 import API from "../../utils/API";
+import validate from "./validation";
 
 function AddPost(){  
     const [input, setInput] = useState({});
+    const [image, setImage] = useState({});
+    const [file, setFile] = useState({});
+    const [errors, setErrors] = useState({});
+    const [fileError, setFileError] = useState("");
     const showPost = useSelector(state => state.showPost);  
     const userState = useSelector(state => state.userData);
     const dispatch = useDispatch();
-    const close = () => {
-        dispatch(CLOSEPOST())
+    let data = new FormData();
+    const close = () => {        
+        setInput({});
+        setFile({});
+        setImage({});
+        setErrors({});
+        setFileError("");
+        dispatch(CLOSEPOST());
     };   
     const handleSubmit = e => {
-        e.preventDefault();
-        API.post(userState.email, input)
-        .then(res => {
-            close();
-            setInput({});
-        })
-        .catch(err => console.log(err))
+        console.log("submitting");        
+        console.log(fileError.length);
+        e.preventDefault();  
+        let inputValidate = validate(input);  
+        console.log(Object.keys(inputValidate).length);  
+        if(Object.keys(inputValidate).length === 0 && fileError.length === 0){
+            for(const i in input){
+                data.append(i, input[i])
+            }   
+            console.log(image);
+            if(image.length){
+                data.append('file', image)
+            };
+            API.post(userState.email, data)
+            .then(res => {
+                close();
+                setInput({});
+                setFile({});
+                setImage({});
+                setErrors({});
+                setFileError("");
+            })
+            .catch(err => console.log(err))
+        } else {
+            setErrors(validate(input))
+        }       
     };
     const handleChange = e => {
         e.persist();
@@ -28,6 +58,21 @@ function AddPost(){
         setInput(input => ({
             ...input, [name]: value
         })); 
+    };
+    const fileUpload = e => {
+        setFileError("");
+        const files = e.target.files;          
+        if(files[0].size <= 65535){
+            let src = URL.createObjectURL(files[0]);
+            setFile(src);
+            setImage(e.target.files[0]);
+        } else {
+            setFileError("File size is too large. Max size is 64 KB.");
+        }     
+    };
+    const deleteImage = () => {
+        setImage({});
+        setFile({});
     };
     return (
         <Modal show={showPost} onHide={close}>
@@ -43,6 +88,7 @@ function AddPost(){
                         <option value="favor">I need a favor</option>
                         <option value="offer">I have an offer</option>  
                     </Form.Control>
+                    {errors.type && (<p className="text-danger">{errors.type}</p>)} 
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Category</Form.Label>
@@ -58,16 +104,33 @@ function AddPost(){
                         <option value="errands">Errands</option>   
                         <option value="other">Other</option>                     
                     </Form.Control>
+                    {errors.category && (<p className="text-danger">{errors.category}</p>)} 
                 </Form.Group>
                 <Form.Group>
                     <Form.Label>Title</Form.Label>
-                    <Form.Control onChange={handleChange} name="title" type="text" />                    
+                    <Form.Control onChange={handleChange} name="title" type="text" />    
+                    {errors.title && (<p className="text-danger">{errors.title}</p>)}                 
                 </Form.Group>  
                 <Form.Group>
                     <Form.Label>Message</Form.Label>
-                    <Form.Control onChange={handleChange} name="message" type="text" />                    
-                </Form.Group>                 
-                <Button type="submit" onClick={handleSubmit}>Submit</Button>
+                    <Form.Control onChange={handleChange} name="message" type="text" as="textarea" rows="5" /> 
+                    {errors.message && (<p className="text-danger">{errors.message}</p>)}  
+                </Form.Group>  
+                <Form.Group>    
+                    { file.length ? (
+                        <div>
+                            <img src={file} alt="upload preview" id="previewImg"/>
+                            <Button id="deleteImg" onClick={deleteImage}>X</Button>
+                        </div>
+                           
+                    ) : (
+                        null
+                    )
+                    }            
+                    <Form.Control type='file' id='single' onChange={fileUpload} />  
+                    {fileError && (<p className="text-danger">{fileError}</p>)}                   
+                </Form.Group>               
+                <Button type="submit" onClick={handleSubmit}>Submit</Button>             
             </Form>
         </Modal.Body>
         <Modal.Footer>

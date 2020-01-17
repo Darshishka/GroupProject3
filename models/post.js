@@ -31,6 +31,10 @@ module.exports = function(sequelize, DataTypes) {
     likes: {
       type: DataTypes.INTEGER,
       defaultValue: 0      
+    },
+    image: {
+      type: DataTypes.BLOB,
+      length: "long"
     }
   });
   Post.associate = function(models) {    

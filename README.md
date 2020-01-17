@@ -14,6 +14,7 @@ This full stack ReactJS neighborhood app uses Redux for state management, Sequel
 - Node.js and Express
 - User authentication and validation
 - [Bcrypt](https://www.npmjs.com/package/bcrypt)
+- Multer for back end photo upload parsing
 
 ## Key Features
 
@@ -25,6 +26,7 @@ This full stack ReactJS neighborhood app uses Redux for state management, Sequel
 * User authentication with JWT and local storage for persistance 
 * Bcrypt for password salting and hashing
 * Restricted routes in ReactJS using react-router-dom
+* Multer for photo upload
 
 * Creating a new user
 
@@ -48,7 +50,7 @@ You will also need Node.js installed.  For more information, visit <https://node
 
 To install, access the Github page <https://github.com/Darshishka/GroupProject3>.  You may fork the repository and then clone it to your computer.  
 
-Next, you will need to download the required NPM packages, on both the client and root foolders. Because these packages are listed as dependencies already in the package.json file, you may install these packages by typing `npm install` on the command line. 
+Next, you will need to download the required NPM packages, on both the client and root folders. Because these packages are listed as dependencies already in the package.json file, you may install these packages by typing `npm install` on the command line. 
 
 This app uses MySQL and Sequelize. You will need to set up your remote database by uploading the information in the `schema.sql` file located in the models folder. You'll need to create a .env file in the root folder and add DB_PASS=YOURMYSQLPASSWORD.
 

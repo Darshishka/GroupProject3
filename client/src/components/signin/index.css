@@ -1,7 +1,7 @@
 body {
     background-color: rgb(248, 244, 244);
 }
-img {
+.logo {
     margin-top: 10%;
     margin-left: -41%;
     margin-bottom: -30%;
@@ -84,7 +84,7 @@ label {
 
 /*--- Mobile portrait ---*/
 @media only screen and (min-width : 259px) and (max-width : 480px) {
-    img {
+    .logo {
         margin-top: 0rem;
         width: 80px;
         height: 60px;
@@ -154,7 +154,7 @@ label {
 
 /*--- Mobile landscape ---*/
 @media only screen and (min-width : 481px) and (max-width : 556px) {
-     img {
+    .logo {
         margin-top: 0rem;
         width: 80px;
         height: 60px;
@@ -225,7 +225,7 @@ label {
 
 /*--- Mobile landscape ---*/
 @media only screen and (min-width : 557px) and (max-width : 650px) {
-    img {
+    .logo {
        margin-top: 0rem;
        width: 30%;
        height: 30%;
@@ -295,7 +295,7 @@ label {
 
 /*--- Tablet sm ---*/
 @media only screen and (min-width : 651px) and (max-width : 707px) {
-    img {
+    .logo {
         margin-top: 10%;
         margin-left: -46%;
         margin-bottom: -30%;
@@ -352,7 +352,7 @@ label {
 }
 /*--- Tablet lg ---*/
 @media only screen and (min-width : 707px) and (max-width : 760px) {
-    img {
+    .logo {
         margin-top: 10%;
         margin-left: -46%;
         margin-bottom: -30%;
@@ -410,7 +410,7 @@ label {
 
 /*--- Desktop sm ---*/
 @media only screen and (min-width : 761px) and (max-width : 950px) {
-    img {
+    .logo {
         margin-top: 10%;
         margin-left: -48%;
         margin-bottom: -30%;
@@ -460,7 +460,7 @@ label {
 
 /*--- Desktop md ---*/
 @media only screen and (min-width : 951px) and (max-width : 1000px) {
-    img {
+    .logo {
         margin-top: 25%;
         margin-left: -48%;
         margin-bottom: -30%;
