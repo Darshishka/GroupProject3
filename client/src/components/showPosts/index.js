@@ -6,7 +6,7 @@ import { SHOWPOST, SHOWCOMMENT, POSTID } from "../../actions";
 import API from "../../utils/API";
 import Comment from "../comment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faComment, faChevronDown, faCarAlt, faBaby, faSchool, faHome, faPaw, faTools, faTree, faShoppingCart, faQuestionCircle, faHandHolding , faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faComment, faChevronDown, faCarAlt, faBaby, faSchool, faHome, faPaw, faTools, faTree, faShoppingCart, faQuestionCircle, faHandHolding , faHandHoldingHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
 import Moment from 'react-moment';
 
 function Posts(){
@@ -60,7 +60,7 @@ function Posts(){
         .catch(err => console.log(err))
     };
 
-    const disLike = e => {        
+    const disLike = e => {   
         let id = e.target.id;
         let num = {likes: parseInt(e.target.value) - 1};
         API.likePost(id, num)
@@ -100,7 +100,7 @@ function Posts(){
         { posts.length > 0 ? (
             <Accordion id="myPosts" defaultActiveKey="0">
                 {
-                    posts.map((el, i) => (
+                    posts.reverse().map((el, i) => (
                         <Card key={el.id}>
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
                                 <Row>
@@ -158,7 +158,7 @@ function Posts(){
                                         }
                                         
                                         <Button id={el.id} value={el.likes} className="like" onClick={addLike}><FontAwesomeIcon icon={faHeart}/> Like </Button>
-                                        <Button id={el.id} value={el.likes} className="unlike" onClick={disLike}>Unlike</Button>
+                                        <Button id={el.id} value={el.likes} className="unlike" onClick={disLike}><FontAwesomeIcon icon={faHeartBroken}/> Unlike</Button>
                                         <Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button><FontAwesomeIcon id="chevron" icon={faChevronDown}/>
                                     </Col>
                                     <Comment />
