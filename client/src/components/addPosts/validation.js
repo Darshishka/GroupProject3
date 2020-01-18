@@ -7,7 +7,7 @@ export default function validate(inputs) {
     } else if (!inputs.title){
         errors.title = "A title is required";
     } else if (!inputs.message){
-        errors.firstName = "A message is required";
+        errors.message = "A message is required";
     } 
     return errors;
 };
