@@ -132,6 +132,21 @@ p {
     margin-right: 5px;
     cursor: pointer;
 }
+
+.unlike {
+    margin-right: 5px;
+    cursor: pointer;
+    background-color: #0e464c !important;
+    outline: none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
+}
+
+.unlike:active {
+    outline: none !important;
+    outline-offset: none !important;
+}
+
 #numComments, #numLikes {
     margin-right: 3px;
     color: gray;

@@ -59,6 +59,19 @@ function Posts(){
         })
         .catch(err => console.log(err))
     };
+
+    const disLike = e => {        
+        let id = e.target.id;
+        let num = {likes: parseInt(e.target.value) - 1};
+        API.likePost(id, num)
+        .then(res => {
+            API.getPosts()
+            .then(res => {   
+                setPosts(res.data)})
+            .catch(err => console.log(err))
+        })
+        .catch(err => console.log(err))
+    };
     const deleteComment = e => {
         let id = e.target.id;
         API.deleteComment(id)
@@ -145,6 +158,7 @@ function Posts(){
                                         }
                                         
                                         <Button id={el.id} value={el.likes} className="like" onClick={addLike}><FontAwesomeIcon icon={faHeart}/> Like </Button>
+                                        <Button id={el.id} value={el.likes} className="unlike" onClick={disLike}>Unlike</Button>
                                         <Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button><FontAwesomeIcon id="chevron" icon={faChevronDown}/>
                                     </Col>
                                     <Comment />
