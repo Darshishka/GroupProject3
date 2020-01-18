@@ -25,18 +25,17 @@ function AddPost(){
         dispatch(CLOSEPOST());
     };   
     const handleSubmit = e => {
-        console.log("submitting");        
-        console.log(fileError.length);
         e.preventDefault();  
         let inputValidate = validate(input);  
-        console.log(Object.keys(inputValidate).length);  
         if(Object.keys(inputValidate).length === 0 && fileError.length === 0){
             for(const i in input){
                 data.append(i, input[i])
             }   
             console.log(image);
             if(image.length){
-                data.append('file', image)
+                data.append('file', image);
+                console.log("image appended");
+                console.log(data);
             };
             API.post(userState.email, data)
             .then(res => {
