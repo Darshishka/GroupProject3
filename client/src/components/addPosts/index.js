@@ -31,11 +31,9 @@ function AddPost(){
             for(const i in input){
                 data.append(i, input[i])
             }   
-            console.log(image);
-            if(image.length){
+            console.log(image.length);
+            if(image){
                 data.append('file', image);
-                console.log("image appended");
-                console.log(data);
             };
             API.post(userState.email, data)
             .then(res => {
