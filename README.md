@@ -4,6 +4,12 @@
 ## Overview
 This full stack ReactJS neighborhood app uses Redux for state management, Sequelize/mySQL as a database, as well as Express and Node.js for the backend. It allows users to post favors and offers, comment on them, and upload photos. Features password salting + hashing and inclusive design.
 
+Login page with user authentication and validation
+![image](https://user-images.githubusercontent.com/13988358/72671445-1a5d7e80-39ff-11ea-966a-e3c13ec2d5bf.png)
+
+In the application, select sort options in the left menu 
+
+
 ## Technologies and Dependencies
 - JavaScript
 - ReactJS
