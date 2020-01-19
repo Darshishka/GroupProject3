@@ -11,6 +11,8 @@ import Moment from 'react-moment';
 
 function Posts(){
     const [posts, setPosts] = useState([]);
+    const [like, setLike] = useState(true);
+    const [dislike, setDisLike] = useState(false);
     const dispatch = useDispatch();
     const showPostState = useSelector(state => state.showPost);
     const showCommentState = useSelector(state => state.showComment); 
@@ -47,30 +49,38 @@ function Posts(){
     const showPost = () => {
         dispatch(SHOWPOST())
     };  
-    const addLike = e => {        
-        let id = e.target.id;
-        let num = {likes: parseInt(e.target.value) + 1};
-        API.likePost(id, num)
-        .then(res => {
-            API.getPosts()
-            .then(res => {   
-                setPosts(res.data)})
+    const addLike = e => { 
+        if(like === true){
+            setLike(false);
+            setDisLike(true);
+            let id = e.target.id;
+            let num = {likes: parseInt(e.target.value) + 1};
+            API.likePost(id, num)
+            .then(res => {
+                API.getPosts()
+                .then(res => {   
+                    setPosts(res.data)})
+                .catch(err => console.log(err))
+            })
             .catch(err => console.log(err))
-        })
-        .catch(err => console.log(err))
+        }              
     };
 
-    const disLike = e => {   
-        let id = e.target.id;
-        let num = {likes: parseInt(e.target.value) - 1};
-        API.likePost(id, num)
-        .then(res => {
-            API.getPosts()
-            .then(res => {   
-                setPosts(res.data)})
+    const disLike = e => {  
+        if(dislike === true) {
+            setDisLike(false);
+            setLike(true);
+            let id = e.target.id;
+            let num = {likes: parseInt(e.target.value) - 1};
+            API.likePost(id, num)
+            .then(res => {
+                API.getPosts()
+                .then(res => {   
+                    setPosts(res.data)})
+                .catch(err => console.log(err))
+            })
             .catch(err => console.log(err))
-        })
-        .catch(err => console.log(err))
+        }
     };
     const deleteComment = e => {
         let id = e.target.id;
