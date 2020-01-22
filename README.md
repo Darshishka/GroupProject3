@@ -18,27 +18,24 @@ This full stack ReactJS neighborhood app uses Redux for state management, Sequel
 
 ## Key Features
 
-* Clean, ES6 JavaScript code
-* Express and express.Router() to handle server routes
-* ReactJS UI 
-* State management using Redux and Redux Persist to persist the Redux store
-* User sign-up
-* User authentication with JWT and local storage for persistance 
-* Bcrypt for password salting and hashing
-* Restricted routes in ReactJS using react-router-dom
-* Multer for photo upload
+- Clean, ES6 JavaScript code
+- Express and express.Router() to handle server routes
+- ReactJS UI 
+- State management using Redux and Redux Persist to persist the Redux store
+- User sign-up
+- User authentication with JWT and local storage for persistance 
+- Bcrypt for password salting and hashing
+- Restricted routes in ReactJS using react-router-dom
+- Multer for photo upload
 
-* Creating a new user
+* Creating a new user and logging in
 
-add gif later
-
-* Logging in and out
-
-add gif later
+![signupFavorly](https://user-images.githubusercontent.com/42453320/72670753-33adfd00-39f6-11ea-9069-9c435b4833b8.gif)
 
 * Posting and commenting
 
-add gif later
+![postingFavorly](https://user-images.githubusercontent.com/42453320/72670773-6a841300-39f6-11ea-8530-e0021cb8e239.gif)
+
 
 ## Getting Started
 
@@ -81,7 +78,7 @@ then you can git add, commit, and push to heroku master.
 ## Authors
 
 * Authors: [Stephanie Lake](https://github.com/sjconst), [Darcy Atlas](https://github.com/Darshishka), [Bill Coury](https://github.com/billcoury), [Whitney Tarkington](https://github.com/whittark)
-* Change address later --- See deployed on [Heroku](https://www.heroku.com/)
+* See deployed on [Heroku](https://whispering-gorge-32660.herokuapp.com/)
 
 ## License
 

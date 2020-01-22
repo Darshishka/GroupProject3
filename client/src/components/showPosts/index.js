@@ -6,11 +6,13 @@ import { SHOWPOST, SHOWCOMMENT, POSTID } from "../../actions";
 import API from "../../utils/API";
 import Comment from "../comment";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHeart, faComment, faChevronDown, faCarAlt, faBaby, faSchool, faHome, faPaw, faTools, faTree, faShoppingCart, faQuestionCircle, faHandHolding , faHandHoldingHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart, faComment, faChevronDown, faCarAlt, faBaby, faSchool, faHome, faPaw, faTools, faTree, faShoppingCart, faQuestionCircle, faHandHolding , faHandHoldingHeart, faHeartBroken } from "@fortawesome/free-solid-svg-icons";
 import Moment from 'react-moment';
 
 function Posts(){
     const [posts, setPosts] = useState([]);
+    const [like, setLike] = useState(true);
+    const [dislike, setDisLike] = useState(false);
     const dispatch = useDispatch();
     const showPostState = useSelector(state => state.showPost);
     const showCommentState = useSelector(state => state.showComment); 
@@ -47,17 +49,38 @@ function Posts(){
     const showPost = () => {
         dispatch(SHOWPOST())
     };  
-    const addLike = e => {        
-        let id = e.target.id;
-        let num = {likes: parseInt(e.target.value) + 1};
-        API.likePost(id, num)
-        .then(res => {
-            API.getPosts()
-            .then(res => {   
-                setPosts(res.data)})
+    const addLike = e => { 
+        if(like === true){
+            setLike(false);
+            setDisLike(true);
+            let id = e.target.id;
+            let num = {likes: parseInt(e.target.value) + 1};
+            API.likePost(id, num)
+            .then(res => {
+                API.getPosts()
+                .then(res => {   
+                    setPosts(res.data)})
+                .catch(err => console.log(err))
+            })
             .catch(err => console.log(err))
-        })
-        .catch(err => console.log(err))
+        }              
+    };
+
+    const disLike = e => {  
+        if(dislike === true) {
+            setDisLike(false);
+            setLike(true);
+            let id = e.target.id;
+            let num = {likes: parseInt(e.target.value) - 1};
+            API.likePost(id, num)
+            .then(res => {
+                API.getPosts()
+                .then(res => {   
+                    setPosts(res.data)})
+                .catch(err => console.log(err))
+            })
+            .catch(err => console.log(err))
+        }
     };
     const deleteComment = e => {
         let id = e.target.id;
@@ -87,7 +110,7 @@ function Posts(){
         { posts.length > 0 ? (
             <Accordion id="myPosts" defaultActiveKey="0">
                 {
-                    posts.map((el, i) => (
+                    posts.reverse().map((el, i) => (
                         <Card key={el.id}>
                             <Accordion.Toggle as={Card.Header} eventKey={i}>
                                 <Row>
@@ -145,6 +168,7 @@ function Posts(){
                                         }
                                         
                                         <Button id={el.id} value={el.likes} className="like" onClick={addLike}><FontAwesomeIcon icon={faHeart}/> Like </Button>
+                                        <Button id={el.id} value={el.likes} className="unlike" onClick={disLike}><FontAwesomeIcon icon={faHeartBroken}/> Unlike</Button>
                                         <Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button><FontAwesomeIcon id="chevron" icon={faChevronDown}/>
                                     </Col>
                                     <Comment />
