@@ -1,11 +1,8 @@
 #postContainer {  
-    margin-left: 0px;    
+    margin-bottom: 50px;   
 }
 #myTable {
     margin-right: 50px;
-}
-#pageContainer {
-    width: 78%;
 }
 .userName {
     font-family: "Segoe UI";
@@ -75,7 +72,6 @@ p {
 @media only screen and (max-device-width: 700px) {
     #myPosts {
         padding: 0%;
-        margin-left: 130px;
         padding-bottom: 20%;
         margin-top: 5%;
     }
@@ -100,7 +96,7 @@ p {
     line-height: 40px;   
 }
 .userNameCol {
-    padding: 0px 10px;
+    padding: 0px 20px;
 }
 .commentDate {
     font-size: 0.75em;
@@ -132,7 +128,6 @@ p {
     margin-right: 5px;
     cursor: pointer;
 }
-
 .unlike {
     margin-right: 5px;
     cursor: pointer;
@@ -153,4 +148,7 @@ p {
 }
 .deleteBtn {
     background-color: gray;
+}
+#postImg {
+    max-width: 150px;    
 }

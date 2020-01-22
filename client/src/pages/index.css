@@ -31,11 +31,8 @@
 }
 #mainContainer  {
     background-color: rgb(248, 244, 244); 
-    min-height: 800px;
-}
-#pageContainer {    
-    width: 70%;
-    margin: 0px;
+    min-height: 100vh;
+    margin-left: 0px;
 }
 .nameRow {
     margin-bottom: 15px;
@@ -45,4 +42,9 @@
     padding-bottom: 50px;
     height: 100vh;
 }
-
+#sideNav {
+    background-color: rgba(158,158,158,0.2);  
+}
+#mainRow {
+    height: 100vh;
+}
