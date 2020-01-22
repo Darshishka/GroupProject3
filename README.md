@@ -78,7 +78,7 @@ then you can git add, commit, and push to heroku master.
 ## Authors
 
 * Authors: [Stephanie Lake](https://github.com/sjconst), [Darcy Atlas](https://github.com/Darshishka), [Bill Coury](https://github.com/billcoury), [Whitney Tarkington](https://github.com/whittark)
-* Change address later --- See deployed on [Heroku](https://www.heroku.com/)
+* See deployed on [Heroku](https://whispering-gorge-32660.herokuapp.com/)
 
 ## License
 
