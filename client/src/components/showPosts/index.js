@@ -110,7 +110,7 @@ function Posts(){
         { posts.length > 0 ? (
             <Accordion id="myPosts" defaultActiveKey="0">
                 {
-                    posts.reverse().map((el, i) => (
+                    posts.map((el, i) => (
                         <Card key={el.id} className="myCard">
                             <Card.Header>
                                 <Row>
