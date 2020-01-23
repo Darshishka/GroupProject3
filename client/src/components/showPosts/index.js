@@ -111,8 +111,8 @@ function Posts(){
             <Accordion id="myPosts" defaultActiveKey="0">
                 {
                     posts.reverse().map((el, i) => (
-                        <Card key={el.id}>
-                            <Accordion.Toggle as={Card.Header} eventKey={i}>
+                        <Card key={el.id} className="myCard">
+                            <Card.Header>
                                 <Row>
                                     <Col xs={2} lg={1} >  
                                         <div id="userInitial">{el.User.firstName[0]}</div>
@@ -171,15 +171,18 @@ function Posts(){
                                         ) : (
                                             <Button id={el.id} value={el.likes} className="like" onClick={addLike}><FontAwesomeIcon icon={faHeart}/> Like </Button>
                                         )}
-                                        <Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button><FontAwesomeIcon id="chevron" icon={faChevronDown}/>
+                                        <Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button>
+                                        <Accordion.Toggle eventKey={i} id="toggle"> 
+                                            <FontAwesomeIcon id="chevron" icon={faChevronDown}/>
+                                        </Accordion.Toggle>
                                     </Col>
                                     <Comment />
                                     <Col xs={3} className="align-self-end text-right">
                                         <span id="numLikes"><FontAwesomeIcon icon={faHeart}/> {el.likes} </span>
                                         <span id="numComments"><FontAwesomeIcon icon={faComment}/> {el.Comments.length}</span>
                                     </Col>
-                                </Row>                 
-                            </Accordion.Toggle>
+                                </Row>   
+                            </Card.Header>
                             <Accordion.Collapse eventKey={i}>
                             <Card.Body>
                                 {el.Comments.length ? (
