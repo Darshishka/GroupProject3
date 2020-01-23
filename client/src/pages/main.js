@@ -8,20 +8,20 @@ import Posts from "../components/showPosts";
 
 function Main(){
     return(
-        <div id="mainContainer">
-            <NavTab />            
-            <Row>
-                <Col xs={3}>
+        <>
+        <NavTab /> 
+        <Container id="mainContainer">                       
+            <Row id="mainRow">
+                <Col className="d-none d-sm-block" sm={3} id="sideNav">
                     <Sidenav />
                 </Col>
                 <Col>
                     <AddPost />
-                    <Container id="pageContainer">   
-                        <Posts />
-                    </Container>
+                    <Posts />
                 </Col>
             </Row>
-        </div>
+        </Container>
+        </>
     )
 }
 

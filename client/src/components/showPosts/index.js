@@ -105,7 +105,7 @@ function Posts(){
         return imageURL;
     };
     return (
-        <Container >            
+        <Container id="postContainer">    
         <Button id="post" onClick={showPost}>Post</Button>     
         { posts.length > 0 ? (
             <Accordion id="myPosts" defaultActiveKey="0">
@@ -147,7 +147,7 @@ function Posts(){
                                     <Col>
                                         <p>{el.message}</p>
                                         { el.image ? (
-                                            <img src={processImage(el.image)} alt="post photo"/>
+                                            <img src={processImage(el.image)} alt="post photo" id="postImg"/>
                                         ) : null
                                         }                                        
                                     </Col>
@@ -166,9 +166,11 @@ function Posts(){
                                                 null
                                             )
                                         }
-                                        
-                                        <Button id={el.id} value={el.likes} className="like" onClick={addLike}><FontAwesomeIcon icon={faHeart}/> Like </Button>
-                                        <Button id={el.id} value={el.likes} className="unlike" onClick={disLike}><FontAwesomeIcon icon={faHeartBroken}/> Unlike</Button>
+                                        { dislike ? (
+                                            <Button id={el.id} value={el.likes} className="unlike" onClick={disLike}><FontAwesomeIcon icon={faHeartBroken}/> Unlike</Button>
+                                        ) : (
+                                            <Button id={el.id} value={el.likes} className="like" onClick={addLike}><FontAwesomeIcon icon={faHeart}/> Like </Button>
+                                        )}
                                         <Button id={el.id} onClick={showComment}><FontAwesomeIcon icon={faComment}/> Comment </Button><FontAwesomeIcon id="chevron" icon={faChevronDown}/>
                                     </Col>
                                     <Comment />
