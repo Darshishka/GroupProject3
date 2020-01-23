@@ -152,3 +152,7 @@ p {
 #postImg {
     max-width: 150px;    
 }
+#toggle {
+    border: none;
+    background: none;
+}
